@@ -66,9 +66,9 @@
 
         <tbody>
 
-        <c:forEach items="${policyList}" var="student">
+        <c:forEach items="${policyList}" var="student" varStatus="status">
             <tr>
-
+<%--                <td>${status.count}</td>--%>
                 <td>${student.id}</td>
                 <td>${student.userName}</td>
                 <td>${student.email}</td>
@@ -77,6 +77,7 @@
                 <td>${student.evalue}</td>
 
                 <td><a href="User?page=policyDetails&id=${student.id}">View Details</a></td>
+                <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td>
             </tr>
         </c:forEach>
 

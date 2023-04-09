@@ -1,5 +1,5 @@
 <form method="post" action="">
-    <input type="hidden" name="policyId" value="${student.id}">
+    <input type="hidden" name="id" value="${student.id}">
     <label>Email: ${student.email}</label>
     <br>
     <label>Date of Birth: ${student.DOB}</label>
@@ -28,8 +28,12 @@
     <br>
     <label>E-Value: ${student.evalue}</label>
     <br>
+
+    <img src="data:image/png;base64,${base64Image}">
     <tr>
         <td><a href="User?page=userEdit&id=${student.id}">Edit</a></td>
+<%--        <td><a href="User?page=deleteUser&id=${student.id}">Delete</a></td>--%>
         <td><a href="User?page=deleteUser&id=${student.id}">Delete</a></td>
+
     </tr>
 </form>

@@ -147,20 +147,23 @@ public class AdminController extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
 
-        if (action.equalsIgnoreCase("sorting")) {
-            List<Student> students = AdminService.getAllStudents();
-            // Check if the "sort" parameter is present in the request
-            String sortBy = request.getParameter("sort");
-            if (sortBy != null) {
-                // Sort the list of students based on the given field
-                AdminService.sort(students, sortBy);
-            }
 
-            // Set the sorted list of students as a request attribute
-            // Forward the request to the JSP view
+//        For Sorting Part 2
+        if (action != null && action.equalsIgnoreCase("sorting")) {
+            List<Student> sortedNames = AdminService.getAllStudents();
+            request.setAttribute("names", sortedNames);
             RequestDispatcher dispatcher = request.getRequestDispatcher("admin/view.jsp");
             dispatcher.forward(request, response);
         }
+
+//        for showing the join table and claim made by user
+        if (action != null && action.equalsIgnoreCase("seeclaim")) {
+            List<Student> seeclaim = AdminService.seeclaims();
+            request.setAttribute("seeclaim", seeclaim);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("admin/view.jsp");
+            dispatcher.forward(request, response);
+        }
+
 
 
 

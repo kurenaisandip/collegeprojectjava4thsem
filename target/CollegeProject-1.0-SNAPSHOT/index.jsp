@@ -122,7 +122,7 @@ s
                             <div>Form builder</div>
                         </a></nav>
                     </div><a href="" class="nav-link w-nav-link">Claims</a><a href=""
-                                                                              class="nav-link w-nav-link">About us</a><a href="admin?page=adminlogin"
+                                                                              class="nav-link w-nav-link">About us</a><a href="admin?action=adminlogin"
                                                                                                                          class="nav-link w-nav-link">Admin</a>
                     <%--                    <div data-hover="false" data-delay="0" data-w-id="182d6ffe-7086-ab96-3883-98881cfe083b"--%>
                     <%--                         class="nav-dropdown w-dropdown">--%>

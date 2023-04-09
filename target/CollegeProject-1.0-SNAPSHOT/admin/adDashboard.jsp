@@ -89,6 +89,16 @@
         </form>
     </div>
 </nav>
+<br>
+<br>
+<br>
+<br>
+<form method="post" action="admin?action=sorting">
+    <input type="submit"  />
+</form>
+<br>
+<br>
+<br>
 
 <section>
     <table>

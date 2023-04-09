@@ -73,7 +73,7 @@
                     Dropdown
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="admin?action=seeclaim">Claims</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a>
@@ -89,6 +89,16 @@
         </form>
     </div>
 </nav>
+<br>
+<br>
+<br>
+<br>
+<form method="post" action="admin?action=sorting">
+    <input type="submit"  />
+</form>
+<br>
+<br>
+<br>
 
 <section>
     <table>

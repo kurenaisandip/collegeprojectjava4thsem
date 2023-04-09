@@ -622,6 +622,41 @@
                     <button type="submit">Search</button>
                 </form>
 
+                <div class="table">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Plan Period</th>
+                            <th>Value</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        <c:forEach items="${policyList}" var="student" >
+                            <tr>
+
+<%--                                <td>${student.id}</td>--%>
+
+                                <td>${student.userName}</td>
+                                <td>${student.email}</td>
+                                <td>${student.mobile_Number}</td>
+                                <td>${student.validityPeriod}</td>
+                                <td>${student.evalue}</td>
+
+                                <td><a href="User?page=policyDetails&id=${student.id}">View Details</a></td>
+                            </tr>
+                        </c:forEach>
+
+                        </tbody>
+                    </table>
+
+                </div>
 
 
 

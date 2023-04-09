@@ -3,38 +3,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>List of Students</title>
+    <meta charset="UTF-8">
+    <title>Sort Names</title>
 </head>
 <body>
-<h1>List of Students</h1>
-
-<form method="post" action="admin?action=sorting">
-    Sort by:
-    <select name="sort">
-        <option value="id">ID</option>
-        <option value="userName">Full Name</option>
-        <option value="email">Email</option>
-        <option value="password">Password</option>
-    </select>
-    <button type="submit">Sort</button>
-</form>
-
+<h1>Sort Names</h1>
 <table>
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Full Name</th>
-        <th>User Name</th>
-        <th>Password</th>
+        <th>First Name</th>
+        <th>Last Name</th>
     </tr>
     </thead>
     <tbody>
-    <c:forEach items="${students}" var="student">
+    <c:forEach var="name" items="${names}">
         <tr>
-            <td>${student.id}</td>
-            <td>${student.userName}</td>
-            <td>${student.email}</td>
-            <td>${student.password}</td>
+            <td>${name.userName}</td>
+            <td>${name.email}</td>
         </tr>
     </c:forEach>
     </tbody>

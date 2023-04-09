@@ -39,7 +39,7 @@ public class AdminService {
 
 
     //    This is related to list user page
-    public List<Student> getUserList() {
+    public static List<Student> getUserList() {
         List<Student> userList = new ArrayList<>();
         String query = "select * from login_users";
         System.out.println(query);
@@ -66,7 +66,7 @@ public class AdminService {
     }
 
     //    For getting user details in user list
-    public Student getUserRow(int id) {
+    public static Student getUserRow(int id) {
         Student student = new Student();
         String query = "select * from login_users where id = ?";
         PreparedStatement pstm = new DBConnection().getStatement(query);
@@ -116,48 +116,34 @@ public class AdminService {
 
     }
 
-
+//This is the method for sorting by username
     public static List<Student> getAllStudents() {
-        List<Student> students = new ArrayList<>();
-            String sql = "SELECT * FROM login_users";
-        PreparedStatement pstm = new DBConnection().getStatement(sql);
-        try {
-            ResultSet rs = pstm.executeQuery();
-            while (rs.next()) {
-                Student student = new Student();
-                student.setId(rs.getInt("id"));
-                student.setUserName(rs.getString("username"));
-                student.setEmail(rs.getString("email"));
-
-                student.setPassword(rs.getString("password"));
-                students.add(student);
-            }
-        }catch (SQLException e) {
-                e.printStackTrace();
-            }
-        return students;
+        List<Student> name =  getUserList();
+        Collections.sort(name, Comparator.comparing(Student::getUserName));
+        return name;
     }
 
 
-    public static void sort(List<Student> students, String sortBy) {
-        switch (sortBy) {
-            case "name":
-                Collections.sort(students, Comparator.comparing(Student::getUserName));
-                break;
-            case "email":
-                Collections.sort(students, Comparator.comparing(Student::getEmail));
-                break;
-            case "password":
-                Collections.sort(students, Comparator.comparing(Student::getPassword));
-                break;
-            default:
-                // Do nothing if sortBy parameter is not recognized
-                break;
+//so This is method for seeclaims which join table which admin can see
+    public List<Student> seeclaims() throws SQLException {
+        List<Student> SeeClaims = new ArrayList<>();
+        String query = "SELECT students.id, students.name, classes.class_name " +
+                "FROM students " +
+                "JOIN classes ON students.class_id = classes.id";
+        PreparedStatement stmt = new DBConnection().getStatement(query);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            int id = rs.getInt("id");
+            String name = rs.getString("name");
+            String className = rs.getString("class_name");
+            SeeClaims.add(new Student());
         }
+        return SeeClaims;
     }
 
 
-    } // admin service
+
+} // admin service
 
 
 

@@ -10,8 +10,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Base64;
+import java.util.HashMap;
 import java.util.List;
 
 public class UserService {
@@ -83,7 +86,7 @@ public class UserService {
             ps.setString(16, student.getMobile_Number());
             ps.setInt(17, student.getEvalue());
             System.out.println("OB : " + student.getDOB());
-            System.out.printf("" +ps);
+            System.out.printf("" + ps);
             ps.execute();
 
 //            ResultSet rs = ps.executeQuery();
@@ -143,7 +146,7 @@ public class UserService {
 //    For storing the premium in database
 
     public void insertPremium(Student student) {
-        String query = "insert into Premium (Name, PhoneNumber, Evalue, Premium) values (?,?,?,?)";
+        String query = "insert into premium (Name, PhoneNumber, Evalue, Premium) values (?,?,?,?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
             ps.setString(1, student.getUserName());
@@ -281,7 +284,6 @@ public class UserService {
     }
 
 
-
 // This code is related to delete User
 
     public void deleteUser(int id) {
@@ -297,7 +299,7 @@ public class UserService {
     }
 
 
-//    This will work after user press the edit button
+    //    This will work after user press the edit button
     public void editUser(int id, Student student) throws SQLException {
 
         String query = "update details set EMAIL=?, Gender=?, Occupation=?, DOB=?, fullName=?, idtype=?, idnumber=?, authority=?, state=?, date=?, plateno=?, manufacturer=?, motordmg=?, plan=?, vperiod=?,  mobilenumber=?, evalue=? where id=?";
@@ -332,8 +334,6 @@ public class UserService {
 //    this will work when user make final change in the update details
 
 
-
-
     //    For registering the claim of their insurance
     public void Claim(Student student) {
         String query = "insert into claim (name, policy, address, email, number, info, file ) values (?,?,?,?,?,?, ?)";
@@ -356,43 +356,45 @@ public class UserService {
 
     }
 
-        // For searching the users
-        public static List<Student> searchUsers(String query) {
-            List<Student> search = new ArrayList< >();
-            String sql = "SELECT * FROM details WHERE fullname LIKE ? OR EMAIL LIKE ?";
-            try (PreparedStatement ps = new DBConnection().getStatement(sql);) {
-                ps.setString(1, "%" + query + "%");
-                ps.setString(2, "%" + query + "%");
-                try (ResultSet rs = ps.executeQuery()) {
-                    while (rs.next()) {
-                        Student student = new Student();
-                        student.setId(rs.getInt("id"));
-                        student.setEmail(rs.getString("EMAIL"));
-                        student.setGender(rs.getString("Gender"));
-                        student.setOccupation(rs.getString("Occupation"));
-                        student.setUserName(rs.getString("fullname"));
-                        student.setDOB(rs.getString("DOB"));
-                        student.setId_Type(rs.getString("idtype"));
-                        student.setId_number(rs.getString("idnumber"));
-                        student.setAuthority(rs.getString("authority"));
-                        student.setState(rs.getString("state"));
-                        student.setDate(rs.getString("date"));
-                        student.setPlate_No(rs.getString("plateno"));
-                        student.setManufacturer(rs.getString("manufacturer"));
-                        student.setMotor_Dmg(rs.getString("motordmg"));
-                        student.setPlan(rs.getString("plan"));
-                        student.setValidityPeriod(("vperiod"));
-                        student.setMobile_Number(rs.getString("mobilenumber"));
-                        student.setEvalue(rs.getInt("evalue"));
+    // For searching the users
+    public static List<Student> searchUsers(String query) {
+        List<Student> search = new ArrayList<>();
+        String sql = "SELECT * FROM details WHERE fullname LIKE ? OR EMAIL LIKE ?";
+        try (PreparedStatement ps = new DBConnection().getStatement(sql);) {
+            ps.setString(1, "%" + query + "%");
+            ps.setString(2, "%" + query + "%");
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    Student student = new Student();
+                    student.setId(rs.getInt("id"));
+                    student.setEmail(rs.getString("EMAIL"));
+                    student.setGender(rs.getString("Gender"));
+                    student.setOccupation(rs.getString("Occupation"));
+                    student.setUserName(rs.getString("fullname"));
+                    student.setDOB(rs.getString("DOB"));
+                    student.setId_Type(rs.getString("idtype"));
+                    student.setId_number(rs.getString("idnumber"));
+                    student.setAuthority(rs.getString("authority"));
+                    student.setState(rs.getString("state"));
+                    student.setDate(rs.getString("date"));
+                    student.setPlate_No(rs.getString("plateno"));
+                    student.setManufacturer(rs.getString("manufacturer"));
+                    student.setMotor_Dmg(rs.getString("motordmg"));
+                    student.setPlan(rs.getString("plan"));
+                    student.setValidityPeriod(("vperiod"));
+                    student.setMobile_Number(rs.getString("mobilenumber"));
+                    student.setEvalue(rs.getInt("evalue"));
 
-                        search.add(student);
-                    }
+                    search.add(student);
                 }
-            } catch (SQLException ex) {
-                System.out.println(ex);
             }
-            return search;
+        } catch (SQLException ex) {
+            System.out.println(ex);
         }
+        return search;
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -400,6 +402,78 @@ public class UserService {
         us.getPolicyList();
     }
 
+    //    for showing image in the browser
+    public String showimage(Student student) throws SQLException {
+        String base64Image = "";
+
+        // Retrieve the image data from the database
+        String query = "SELECT file FROM claim WHERE id = ?";
+        PreparedStatement ps = new DBConnection().getStatement(query);
+        ps.setInt(1, student.getId());
+        System.out.println(ps);
+        try {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                // Read the image file into a byte array
+                String filePath = rs.getString("file");
+                File file = new File(filePath);
+                byte[] fileContent = Files.readAllBytes(file.toPath());
+                System.out.println(file);
+
+                // Convert the byte array to a base64 string
+                base64Image = Base64.getEncoder().encodeToString(fileContent);
+                System.out.println(base64Image);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return base64Image;
     }
+
+    public HashMap<String, Object> showDetails(Student student) throws SQLException {
+        HashMap<String, Object> details = new HashMap<>();
+        String base64Image = "";
+
+        // Retrieve the image data and student details from the database
+        String query = "SELECT file, name, number, policy, email, info " + "FROM claim " + "WHERE id = ?";
+        PreparedStatement ps = new DBConnection().getStatement(query);
+        ps.setInt(1, student.getId());
+
+        System.out.println(ps);
+
+        try {
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                // Read the image file into a byte array
+                String filePath = rs.getString("file");
+                File file = new File(filePath);
+                byte[] fileContent = Files.readAllBytes(file.toPath());
+                System.out.println(filePath);
+
+                // Convert the byte array to a base64 string
+                base64Image = Base64.getEncoder().encodeToString(fileContent);
+
+                // Add the student details and image to the HashMap
+                String name = rs.getString("name");
+                String phoneNumber = rs.getString("number");
+                String policy = rs.getString("policy");
+                String email = rs.getString("email");
+                String info = rs.getString("info");
+
+                details.put("name", name);
+                details.put("phone_number", phoneNumber);
+                details.put("evalue", policy);
+                details.put("email", email);
+                details.put("info", info);
+                details.put("image", base64Image);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        return details;
+    }
+
+}
 
 

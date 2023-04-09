@@ -3,6 +3,7 @@ package Controller;
 import java.io.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import Hashing.HashPassword;
@@ -66,13 +67,13 @@ public class UserController extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("user/Claim.jsp"); // this code is not working
             rd.forward(request, response);
         }
-//            To redirect to policy plan
+//            To redirect to Change Password
         if (action.equalsIgnoreCase("changepassword")) {
             RequestDispatcher rd = request.getRequestDispatcher("user/changepassword.jsp"); // this code is not working
             rd.forward(request, response);
         }
-        //            To redirect to Change Password
-        if (action.equalsIgnoreCase("")) {
+        //            To redirect to  policy plan
+        if (action.equalsIgnoreCase("policyplan")) {
             RequestDispatcher rd = request.getRequestDispatcher("user/policyplan.jsp"); // this code is not working
             rd.forward(request, response);
         }
@@ -181,22 +182,7 @@ public class UserController extends HttpServlet {
 //        For Claiming the insurance by form
         if (action.equalsIgnoreCase("claim")) {
 
-
-//            student.setUserName("name");
-//            student.setPlan("Insurance_policy");
-//            student.setAddress("address");
-//            student.setEmail("email");
-//            student.setMobile_Number(Integer.parseInt("phone_number"));
-//            student.setInformation("info");
-//
-//            Part p = request.getPart("files");
-
-//            UserService helper = new UserService();
-//            Student message = helper.insertPremium(student, request);
-//
-//            request.setAttribute("message", message);
-//            request.getRequestDispatcher("/upload.jsp").forward(request, response);
-
+            Student student = new Student();
             Part filePart = request.getPart("files");
             String fileName = filePart.getSubmittedFileName();
             String filePathName = "C:\\Users\\Jiwan\\IdeaProjects\\CollegeProject\\src\\main\\webapp\\files\\" + fileName;
@@ -205,7 +191,7 @@ public class UserController extends HttpServlet {
             }
             System.out.println(filePathName);
             try {
-                Student student = new Student();
+                System.out.println("inside the try ");
                 student.setUserName(request.getParameter("name"));
                 student.setPlan(request.getParameter("Insurance_policy"));
                 student.setAddress(request.getParameter("address"));
@@ -231,7 +217,7 @@ public class UserController extends HttpServlet {
             catch (Exception e) {
                 out.print("ERROR: " + e);
             }
-            System.out.printf("Claim Inserted");
+
 
             RequestDispatcher rd = request.getRequestDispatcher("user/dashboard.jsp");
             try {
@@ -241,8 +227,43 @@ public class UserController extends HttpServlet {
             }
         }
 
-        // For searching policy
+        //            for showing the imgage in managepolicy
+//        if (action.equalsIgnoreCase("showimage")) {
+//
+//            Student student = new Student();
+//
+//            try {
+//                student.setId(Integer.parseInt(request.getParameter("id")));
+//                String base64Image = new UserService().showimage(student);
+//                request.setAttribute("base64Image", base64Image);
+//            } catch (Exception e) {
+//                request.setAttribute("errorMessage", "Error retrieving image: " + e.getMessage());
+//            }
+//
+//            RequestDispatcher rd = request.getRequestDispatcher("user/claimdetails.jsp");
+//            rd.forward(request, response);
+//
+//
+//        }
+        if (action.equalsIgnoreCase("showimage")) {
 
+            Student student = new Student();
+            student.setId(Integer.parseInt(request.getParameter("id")));
+            HashMap<String, Object> details = null;
+            try {
+                details = new UserService().showDetails(student);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            request.setAttribute("details", details);
+
+            RequestDispatcher rd = request.getRequestDispatcher("user/claimdetails.jsp");
+            rd.forward(request, response);
+
+        }
+
+
+        // for searching users
         if (action.equalsIgnoreCase("search")) {
             String query = request.getParameter("query");
             List<Student> searchResults = UserService.searchUsers(query);
@@ -336,15 +357,17 @@ public class UserController extends HttpServlet {
 
 
 //            For user to delete the policy
-            if (action.equalsIgnoreCase("deleteUser")) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                UserService userService = new UserService();
-                userService.deleteUser(id);
-                List<Student> userList = new UserService().getPolicyList();
-                request.setAttribute("userList", userList);
-                RequestDispatcher rd = request.getRequestDispatcher("user/managepolicy.jsp");
-                rd.forward(request, response);
-            }
+        if (action.equalsIgnoreCase("deleteUser")) {
+//            int id = Integer.parseInt(request.getParameter("policyId"));
+            int id = Integer.parseInt(request.getParameter("id"));
+
+            UserService userService = new UserService();
+            userService.deleteUser(id);
+            List<Student> userList = new UserService().getPolicyList();
+            request.setAttribute("userList", userList);
+            RequestDispatcher rd = request.getRequestDispatcher("user/managepolicy.jsp");
+            rd.forward(request, response);
+        }
 
 
             // for changing password
