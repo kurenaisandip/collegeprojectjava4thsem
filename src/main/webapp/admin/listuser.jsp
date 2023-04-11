@@ -10,6 +10,8 @@
 <html>
 <head>
   <title>List User</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="CSS/styles.css">
 
 </head>
 <body>
@@ -41,15 +43,11 @@
           </tr>
         </c:forEach>
 
-        <%--                <c:forEach var="i" begin="1" end="5">--%>
-        <%--                    Item <c:out value="${i}"/><p>--%>
 
-        <%--                </p>--%>
-        <%--                </c:forEach>--%>
 
       </table>
     </div>
 
-
+  </div>
 </body>
 </html>

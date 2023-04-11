@@ -125,7 +125,7 @@ public class AdminService {
 
 
 //so This is method for seeclaims which join table which admin can see
-    public List<Student> seeclaims() throws SQLException {
+    public static List<Student> seeclaims() throws SQLException {
         List<Student> SeeClaims = new ArrayList<>();
         String query = "SELECT students.id, students.name, classes.class_name " +
                 "FROM students " +

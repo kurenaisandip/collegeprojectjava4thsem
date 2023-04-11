@@ -46,6 +46,26 @@ public class Student {
 
     private String address;
 
+    private String buydate;
+
+    public String getBuydate() {
+        return buydate;
+    }
+
+    public void setBuydate(String buydate) {
+        this.buydate = buydate;
+    }
+
+    public String getLastdate() {
+        return lastdate;
+    }
+
+    public void setLastdate(String lastdate) {
+        this.lastdate = lastdate;
+    }
+
+    private String lastdate;
+
 
 
     public Student() {

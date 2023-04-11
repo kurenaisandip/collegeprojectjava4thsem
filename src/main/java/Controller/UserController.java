@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.*;
+import java.net.URLEncoder;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,9 +11,13 @@ import Hashing.HashPassword;
 import Model.Student;
 import Service.UserService;
 import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+
+
 
 @MultipartConfig
 @WebServlet(name = "UserController", value = "/User")
@@ -67,6 +72,7 @@ public class UserController extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("user/Claim.jsp"); // this code is not working
             rd.forward(request, response);
         }
+
 //            To redirect to Change Password
         if (action.equalsIgnoreCase("changepassword")) {
             RequestDispatcher rd = request.getRequestDispatcher("user/changepassword.jsp"); // this code is not working
@@ -120,6 +126,8 @@ public class UserController extends HttpServlet {
             student.setMotor_Dmg(request.getParameter("Mdmg"));
             student.setPlanType(request.getParameter("Plan"));
             student.setValidityPeriod(request.getParameter("Vperiod"));
+            student.setBuydate(request.getParameter("buydate"));
+            student.setLastdate(request.getParameter("lastdate"));
 
             System.out.printf("Student model: " + student.getEmail());
 
@@ -185,7 +193,7 @@ public class UserController extends HttpServlet {
             Student student = new Student();
             Part filePart = request.getPart("files");
             String fileName = filePart.getSubmittedFileName();
-            String filePathName = "C:\\Users\\Jiwan\\IdeaProjects\\CollegeProject\\src\\main\\webapp\\files\\" + fileName;
+            String filePathName = "C:\\Users\\Jiwan\\IdeaProjects\\CollegeProject\\src\\main\\webapp\\files\\download\\" + fileName;
             for (Part part : request.getParts()) {
                 part.write(filePathName);
             }
@@ -370,32 +378,93 @@ public class UserController extends HttpServlet {
         }
 
 
-            // for changing password
-            if (action.equalsIgnoreCase("changingpassword")) {
-                Student student = new Student();
-                HttpSession session = request.getSession();
-                String email = (String) session.getAttribute("email");
-                student.setPassword(request.getParameter("oldpassword"));
-                student.setNewpassword(request.getParameter("newpassword"));
-                new UserService().changePassword(student, email);
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-                requestDispatcher.forward(request, response);
+        // for changing password
+        if (action.equalsIgnoreCase("changingpassword")) {
+            Student student = new Student();
+            HttpSession session = request.getSession();
+            String email = (String) session.getAttribute("email");
+            student.setPassword(request.getParameter("oldpassword"));
+            student.setNewpassword(request.getParameter("newpassword"));
+            new UserService().changePassword(student, email);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+            requestDispatcher.forward(request, response);
 
-            }
-
-
-            //            for logout
-            if (action.equalsIgnoreCase("logout")) {
-                HttpSession session = request.getSession(false);
-                session.invalidate();
-
-                RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
-                requestDispatcher.forward(request, response);
-            }
+        }
 
 
-        }  // do post
-    }
+        //            for logout
+        if (action.equalsIgnoreCase("logout")) {
+            HttpSession session = request.getSession(false);
+            session.invalidate();
+
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
+            requestDispatcher.forward(request, response);
+        }
+
+//            for downloading image
+//        if (action.equalsIgnoreCase("download")) {
+// // reads input file path from the request parameter
+//            String filePath = request.getParameter("path");
+//            if (filePath == null || filePath.isEmpty()) {
+//                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File path is missing");
+//                return;
+//            }
+////
+////            // check if the file exists and is readable
+//            File downloadFile = new File(filePath);
+//            if (!downloadFile.exists() || !downloadFile.canRead()) {
+//                response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found or cannot be read");
+//                return;
+//            }
+//
+//            // obtains ServletContext
+//            ServletContext context = getServletContext();
+//
+//            // gets MIME type of the file
+//            String mimeType = context.getMimeType(filePath);
+//            if (mimeType == null) {
+//                // set to binary type if MIME mapping not found
+//                mimeType = "application/octet-stream";
+//            }
+//
+//            // modifies response
+//            response.setContentType(mimeType);
+//            response.setContentLength((int) downloadFile.length());
+//
+//            // forces download
+//            String headerKey = "Content-Disposition";
+//            String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
+//            response.setHeader(headerKey, headerValue);
+//
+//            // obtains response's output stream
+//            OutputStream outStream = response.getOutputStream();
+//            try (FileInputStream inStream = new FileInputStream(downloadFile)) {
+//                byte[] buffer = new byte[4096];
+//                int bytesRead = -1;
+//                while ((bytesRead = inStream.read(buffer)) != -1) {
+//                    outStream.write(buffer, 0, bytesRead);
+//                }
+//            }
+//        }
+
+        //To redirect in viewpremium
+        if (action.equalsIgnoreCase("viewpremium")) {
+            Student student = new Student();
+
+            List<Student> premiumlist = new UserService().getPremiumList();
+            request.setAttribute("premiumlist", premiumlist);
+            RequestDispatcher rd = request.getRequestDispatcher("user/viewpremium.jsp"); // this code is not working
+            rd.forward(request, response);
+        }
+
+
+
+
+
+
+    }  // do post
+}
+
 
 
 

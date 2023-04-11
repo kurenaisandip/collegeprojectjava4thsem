@@ -4,12 +4,10 @@ import DBConnection.DBConnection;
 import Model.Student;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.file.Files;
 import java.sql.*;
 import java.util.ArrayList;
@@ -65,7 +63,7 @@ public class UserService {
 
     public Student insertPolicy(Student student) {
 
-        String query = "insert into details (EMAIL,Gender,Occupation,fullname,DOB,idtype,idnumber,authority,state,date,plateno,manufacturer,motordmg,plan,vperiod, mobilenumber, evalue) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into details (EMAIL,Gender,Occupation,fullname,DOB,idtype,idnumber,authority,state,date,plateno,manufacturer,motordmg,plan,vperiod, mobilenumber, evalue, buydate, lastdate) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
             ps.setString(1, student.getEmail());
@@ -85,6 +83,8 @@ public class UserService {
             ps.setString(15, student.getValidityPeriod());
             ps.setString(16, student.getMobile_Number());
             ps.setInt(17, student.getEvalue());
+            ps.setString(18, student.getBuydate());
+            ps.setString(19, student.getLastdate());
             System.out.println("OB : " + student.getDOB());
             System.out.printf("" + ps);
             ps.execute();
@@ -459,6 +459,9 @@ public class UserService {
                 String policy = rs.getString("policy");
                 String email = rs.getString("email");
                 String info = rs.getString("info");
+                String images = rs.getString("file");
+
+
 
                 details.put("name", name);
                 details.put("phone_number", phoneNumber);
@@ -466,6 +469,8 @@ public class UserService {
                 details.put("email", email);
                 details.put("info", info);
                 details.put("image", base64Image);
+                details.put("images", images);
+
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -473,6 +478,52 @@ public class UserService {
 
         return details;
     }
+
+    public List<Student> getPremiumList() {
+        System.out.println("getPremiumList");
+        List<Student> premiumlist1 = new ArrayList<>();
+        String query = "SELECT premium.id, premium.Name, premium.PhoneNumber, premium.Evalue, premium.Premium, details.buydate, details.lastdate " +
+                "FROM premium " +
+                "JOIN details " +
+                "ON premium.id = details.id";
+
+        System.out.println(query);
+        PreparedStatement pstm = new DBConnection().getStatement(query);
+        try {
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Student student = new Student();
+                student.setId(rs.getInt("id"));
+                student.setUserName(rs.getString("Name"));
+                student.setMobile_Number(rs.getString("PhoneNumber"));
+                student.setEvalue(rs.getInt("Evalue"));
+                student.setPremium(rs.getInt("Premium"));
+//                student.setEmail(rs.getString("EMAIL"));
+                student.setBuydate(rs.getString("buydate"));
+                student.setLastdate(rs.getString("lastdate"));
+
+                premiumlist1.add(student);
+
+                System.out.println(pstm);
+                System.out.println(student.getLastdate());
+                System.out.println(student.getBuydate());
+                System.out.println(student.getPremium());
+                System.out.println(student.getMobile_Number());
+                System.out.println(student.getEvalue());
+                System.out.println(student.getUserName());
+                System.out.println(student.getId());
+            }
+//            rs.close();
+//            pstm.close();
+//            System.out.println("policyList.size()"+userList.size());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return premiumlist1;
+    }
+
+
+
 
 }
 

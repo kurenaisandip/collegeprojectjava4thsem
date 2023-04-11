@@ -157,12 +157,17 @@ public class AdminController extends HttpServlet {
         }
 
 //        for showing the join table and claim made by user
-        if (action != null && action.equalsIgnoreCase("seeclaim")) {
-            List<Student> seeclaim = AdminService.seeclaims();
-            request.setAttribute("seeclaim", seeclaim);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("admin/view.jsp");
-            dispatcher.forward(request, response);
-        }
+//        if (action != null && action.equalsIgnoreCase("seeclaim")) {
+//            List<Student> seeclaim = null;
+//            try {
+//                seeclaim = AdminService.seeclaims();
+//            } catch (SQLException e) {
+//                throw new RuntimeException(e);
+//            }
+//            request.setAttribute("seeclaim", seeclaim);
+//            RequestDispatcher dispatcher = request.getRequestDispatcher("admin/view.jsp");
+//            dispatcher.forward(request, response);
+//        }
 
 
 

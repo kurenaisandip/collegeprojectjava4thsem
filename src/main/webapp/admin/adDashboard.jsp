@@ -10,46 +10,17 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <title>Title</title>
-<style>
+    <title>Admin Dashboard</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="CSS/styles.css">
+    <script src="https://kit.fontawesome.com/6f3a65e23d.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+            integrity="sha384-hvwo/bkGjKpgMJR8hRnIQBvFLKxnszgDj3h1E9X3fyC/tjKk4nZznCFP4Eelbquc"
+            crossorigin="anonymous"></script>
 
-    .hidden {
-        display: none;
-    }
-
-    .pagination-container {
-        width: calc(100% - 2rem);
-        display: flex;
-        align-items: center;
-        /* position: absolute; */
-        bottom: 0;
-        padding: 1rem 0;
-        justify-content: center;
-    }
-
-    .pagination-number,
-    .pagination-button{
-        font-size: 1.1rem;
-        background-color: transparent;
-        border: none;
-        margin: 0.25rem 0.25rem;
-        cursor: pointer;
-        height: 2.5rem;
-        width: 2.5rem;
-        border-radius: .2rem;
-        color: #3d1717;
-    }
-
-    .pagination-number:hover,
-    .pagination-button:not(.disabled):hover {
-        background: #767676;
-    }
-
-    .pagination-number.active {
-        color: #fff;
-        background: #b5b5b5;
-    }
-</style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -67,18 +38,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="admin?action=listUser">User List</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="admin?action=seeclaim">Claims</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" href="admin?action=seeclaim">Claims</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
@@ -96,337 +59,23 @@
 <form method="post" action="admin?action=sorting">
     <input type="submit"  />
 </form>
-<br>
-<br>
-<br>
 
-<section>
-    <table>
-        <thead>
-        <tr>
-            <th>0</th>
-            <th>0</th>
-            <th>0</th>
-            <th>0</th>
-
-        </tr>
-
-        </thead>
-        <tbody id="paginated-list" data-current-page="1" aria-live="polite">
-        <tr>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>4</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>6</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>7</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>8</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>9</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>10</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>11</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>12</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>13</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>14</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>15</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>16</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>17</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>21</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>1231</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>122</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>431</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>122</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>121</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>122</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>121</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>1232</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>121</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>3122</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>121</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>1232</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>1231</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>122</td>
-            <td>2</td>
-            <td>2</td>
-            <td>2</td>
-        </tr>
-
-        </tbody>
-    </table>
-    <nav class="pagination-container">
-        <button class="pagination-button" id="prev-button" aria-label="Previous page"
-                title="Previous page">
-            &lt;
-        </button>
-
-        <div id="pagination-numbers">
-
+<div class="parent">
+    <section class="page">
+        <div class="container">
+            <div class="user-info-container landpgc">
+                <span id="greet">Greetings, Admin.</span><br>
+                <span>Your library tools are at your disposal.</span>
+                <img src="CSS/images/book.png" id="greetbg">
+            </div>
         </div>
-
-        <button class="pagination-button" id="next-button" aria-label="Next page"
-                title="Next page">
-            &gt;
-        </button>
-    </nav>
-</section>
-<script>
-    const paginationNumbers = document.getElementById("pagination-numbers");
-    const paginatedList = document.getElementById("paginated-list");
-    const listItems = paginatedList.querySelectorAll("tr");
-    const nextButton = document.getElementById("next-button");
-    const prevButton = document.getElementById("prev-button");
-
-    const paginationLimit = 10
-    const pageCount = Math.ceil(listItems.length / paginationLimit);
-    let currentPage = 1;
-
-    const disableButton = (button) => {
-        button.classList.add("disabled");
-        button.setAttribute("disabled", true);
-    };
-
-    const enableButton = (button) => {
-        button.classList.remove("disabled");
-        button.removeAttribute("disabled");
-    };
-
-    const handlePageButtonsStatus = () => {
-        if (currentPage === 1) {
-            disableButton(prevButton);
-        } else {
-            enableButton(prevButton);
-        }
-
-        if (pageCount === currentPage) {
-            disableButton(nextButton);
-        } else {
-            enableButton(nextButton);
-        }
-    };
-
-    const handleActivePageNumber = () => {
-        document.querySelectorAll(".pagination-number").forEach((button) => {
-            button.classList.remove("active");
-            const pageIndex = Number(button.getAttribute("page-index"));
-            if (pageIndex == currentPage) {
-                button.classList.add("active");
-            }
-        });
-    };
-
-    const appendPageNumber = (index) => {
-        const pageNumber = document.createElement("button");
-        pageNumber.className = "pagination-number";
-        pageNumber.innerHTML = index;
-        pageNumber.setAttribute("page-index", index);
-        pageNumber.setAttribute("aria-label", "Page " + index);
-
-        paginationNumbers.appendChild(pageNumber);
-    };
-
-    const getPaginationNumbers = () => {
-        for (let i = 1; i <= pageCount; i++) {
-            appendPageNumber(i);
-        }
-    };
-
-    const setCurrentPage = (pageNum) => {
-        currentPage = pageNum;
-
-        handleActivePageNumber();
-        handlePageButtonsStatus();
-
-        const prevRange = (pageNum - 1) * paginationLimit;
-        const currRange = pageNum * paginationLimit;
-
-        listItems.forEach((item, index) => {
-            item.classList.add("hidden");
-            if (index >= prevRange && index < currRange) {
-                item.classList.remove("hidden");
-            }
-        });
-    };
-
-    window.addEventListener("load", () => {
-        getPaginationNumbers();
-        setCurrentPage(1);
-
-        prevButton.addEventListener("click", () => {
-            setCurrentPage(currentPage - 1);
-        });
-
-        nextButton.addEventListener("click", () => {
-            setCurrentPage(currentPage + 1);
-        });
-
-        document.querySelectorAll(".pagination-number").forEach((button) => {
-            const pageIndex = Number(button.getAttribute("page-index"));
-
-            if (pageIndex) {
-                button.addEventListener("click", () => {
-                    setCurrentPage(pageIndex);
-                });
-            }
-        });
-    });
+    </section>
+</div>
 
 
-</script>
+
+
+
 </body>
 </html>
 
