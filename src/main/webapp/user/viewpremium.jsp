@@ -87,15 +87,15 @@
                         <table>
                             <colgroup>
                                 <col span="1" style="width: 4%;">
-                                <col span="1" style="width: 15%;">
-                                <col span="1" style="width: 25%;">
+                                <col span="1" style="width: 20%;">
+                                <col span="1" style="width: 20%;">
                                 <col span="1" style="width: 15%;">
                                 <col span="1" style="width: 8%;">
                                 <col span="1" style="width: 9%;">
-                                <col span="1" style="width: 7%;">
+                                <col span="1" style="width: 9%;">
                             </colgroup>
                             <thead>
-                            <tr>
+                            <tr class="listhead">
                                 <th>id</th>
                                 <th>Username</th>
                                 <th>Phone Number</th>

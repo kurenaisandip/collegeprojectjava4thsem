@@ -43,8 +43,8 @@ public class UserController extends HttpServlet {
         }
 
         if (action.equalsIgnoreCase("login")) {
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
+            String email =request.getParameter("email");
+            String password = HashPassword.hashPassword(request.getParameter("password"));
             System.out.printf(email + " " + password + "");
 
             Student student = new UserService().getUser(email, password);
@@ -90,7 +90,7 @@ public class UserController extends HttpServlet {
 
             student.setUserName(request.getParameter("username"));
             student.setEmail(request.getParameter("email"));
-            student.setPassword(request.getParameter("password"));
+            student.setPassword(HashPassword.hashPassword(request.getParameter("password")));
 
             new UserService().insertUser(student);
 
@@ -383,8 +383,8 @@ public class UserController extends HttpServlet {
             Student student = new Student();
             HttpSession session = request.getSession();
             String email = (String) session.getAttribute("email");
-            student.setPassword(request.getParameter("oldpassword"));
-            student.setNewpassword(request.getParameter("newpassword"));
+            student.setPassword(HashPassword.hashPassword(request.getParameter("oldpassword")));
+            student.setNewpassword(HashPassword.hashPassword(request.getParameter("newpassword")));
             new UserService().changePassword(student, email);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(request, response);
