@@ -27,8 +27,17 @@
             </div>
             <div class="two">
                 <ul>
-                    <li class="headlink" id="userprofile"><a href="User?page=logout" id="logout"
-                                                             style="text-decoration: none">Log Out</a></li>
+                    <li>
+                        <form action="user?page=userbsearch" method="post">
+                            <input type="search" name="query" id="search" placeholder="Search...">
+                            <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+
+
+                    <li><a href="" id="profileprofile" class="headlink">My Profile</a></li>
+
+
                 </ul>
             </div>
         </div>
@@ -67,13 +76,6 @@
             <div class="user-info-container">
                 <div class="user-info-container-sub">
                     <div class="User-profile-heading">Manage Policies</div>
-                    <br>
-                    <div class="searcher">
-                        <form action="User?page=search" method="post">
-                            <input type="text" name="query" id="admsearchbox" placeholder="Search...">
-                            <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
                     <br>
                     <div class="User-profile-display displaytable">
                         <table>

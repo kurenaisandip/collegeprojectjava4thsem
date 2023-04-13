@@ -41,6 +41,10 @@ body {
 
 }
 
+.headtitles ul {
+    display: flex;
+}
+
 .headtitles ul li {
     list-style: none;
     /* float: left; */
@@ -49,6 +53,10 @@ body {
 
 }
 
+.two ul {
+    display: flex;
+    align-items: center;
+}
 .headlink {
     padding-top: 15px;
     padding-bottom: 24px;
@@ -72,13 +80,11 @@ body {
 }
 
 .two {
-
     float: right;
+    margin-top: 9px;
 }
 
-.headtitles ul {
-    display: flex;
-}
+
 
 #logo {
     height: 40px;
@@ -774,7 +780,6 @@ body {
     width: 100%;;
 }
 
-.book-info-form,
 .user-info-container,
 .search-result-container{
     background-color: #f3f3f3;
@@ -795,19 +800,11 @@ body {
 }
 
 .user-info-container-sub {
-    width: 730px;
     margin: 10px 0px;
     justify-content: left;
     flex-direction: column;
 }
 
-/* .book-info-form form label,
-.book-info-form form input,
-#synopsis,
-#genre {
-    margin: 0px, 20px;
-    box-sizing: border-box;
-} */
 
 .inputsection {
     margin-bottom: 20px;
@@ -863,6 +860,12 @@ body {
     /* float: left; */
 }
 
+.compactd{
+    width: 48%;
+    display: flex;
+    font-size: 18px;
+}
+
 
 #genre {
     margin-left: 25px;
@@ -911,6 +914,15 @@ input[type=number] {
     max-width: 100px;
 }
 
+.bottombutton{
+    float: right;
+    margin: 20px;
+}
+
+.bottombutton button{
+    margin-left: 10px;
+}
+
 
 #add {
     border-style: none;
@@ -920,10 +932,75 @@ input[type=number] {
     width: 143px;
     height: 39px;
     font-size: 16px;
-
 }
 
+#add:hover{
+    background-color: #0e81a5;
+}
+
+#rqphone {
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #f5a623;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
+}
+
+#rqphone:hover{
+    background-color: #da9420;
+}
+
+#accept {
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #85b362;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
+}
+
+#accept:hover{
+    background-color: #6c9050;
+}
+
+#reject {
+    border-style: none;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #c36e6e;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
+}
+
+#reject:hover{
+    background-color: #9d5353;
+}
+
+#add, #rqphone, #accept, #reject{
+    cursor: pointer;
+}
+
+
 .book-info-form {
+    background-color: #f3f3f3;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 15px;
+    color: rgb(34, 34, 34);
+    padding: 30px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    box-shadow: rgba(10, 10, 10, 0.2) 0px 2px 8px 0px;
+    margin-left: -20px;
+    margin-bottom: 50px;
     align-items: flex-start;
 }
 
@@ -944,7 +1021,7 @@ input[type=number] {
 
 .book-image {
     background-image: url("../CSS/images/bookimages/NOIMAGE.png");
-    width: 60%;
+    width: auto;
     height: auto;
 }
 
@@ -999,6 +1076,8 @@ input[type=number] {
     width: 100%;
     text-decoration: underline #1a98c0 3px;
     text-underline-offset: 6px;
+    margin-bottom: 20px;
+    margin-left: 100px;
 
 }
 
@@ -1061,7 +1140,7 @@ input[type=number] {
 .displaytable {
     width: 1020px;
     justify-content: left;
-    margin-left: -145px;
+    /*margin-left: -145px;*/
 }
 
 table {
