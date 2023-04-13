@@ -27,7 +27,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #4070f4;
+            background: #1a98c0;
         }
 
         .container {
@@ -56,7 +56,7 @@
             height: 3px;
             width: 27px;
             border-radius: 8px;
-            background-color: #4070f4;
+            background-color: #1a98c0;
         }
 
         .container form {
@@ -188,7 +188,7 @@
             color: #fff;
             border-radius: 5px;
             margin: 25px 0;
-            background-color: #4070f4;
+            background-color: #1a98c0;
             transition: all 0.3s linear;
             cursor: pointer;
         }
@@ -199,7 +199,7 @@
         }
 
         form button:hover {
-            background-color: #265df2;
+            background-color: #1a98c0;
         }
 
         form button i,

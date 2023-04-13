@@ -55,6 +55,9 @@
             <a href="User?page=viewpremium">
                 <li class="listitem">View Result</li>
             </a>
+            <a href="User?page=changepassword">
+                <li class="listitem">Change Password</li>
+            </a>
         </ul>
     </section>
 

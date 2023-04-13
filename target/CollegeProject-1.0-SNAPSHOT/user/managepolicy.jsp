@@ -87,7 +87,7 @@
                                 <col span="1" style="width: 7%;">
                             </colgroup>
                             <thead>
-                            <tr>
+                            <tr class="listhead">
                                 <th>id</th>
                                 <th>Username</th>
                                 <th>Email</th>
