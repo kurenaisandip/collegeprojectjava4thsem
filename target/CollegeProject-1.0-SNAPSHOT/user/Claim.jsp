@@ -8,7 +8,7 @@
     <link rel="shortcut icon" type="image/jpg" href="CSS/images/LM.ico"/>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/styles.css">
-<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">--%>
+    <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">--%>
     <script src="https://kit.fontawesome.com/6f3a65e23d.js" crossorigin="anonymous"></script>
 </head>
 
@@ -22,11 +22,21 @@
                     <li><a href="homepage.html"><img src="CSS/images/LMB.png" id="logo"></a></li>
                 </ul>
             </div>
-            <%--            <div class="two">--%>
-            <%--                <ul>--%>
-            <%--                    --%>
-            <%--                </ul>--%>
-            <%--            </div>--%>
+            <div class="two">
+                <ul>
+                    <li>
+                        <form action="user?page=userbsearch" method="post">
+                            <input type="search" name="query" id="search" placeholder="Search...">
+                            <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
+                        </form>
+                    </li>
+
+
+                    <li><a href="" id="profileprofile" class="headlink">My Profile</a></li>
+
+
+                </ul>
+            </div>
         </div>
     </div>
 </header>
@@ -61,7 +71,7 @@
     <section class="page">
         <div class="container">
             <div class="user-info-container" style="width: 800px;">
-                <div class="user-info-container-sub" style="width: 480px;">
+                <div class="user-info-container-sub">
                     <div class="User-profile-heading">Make a claim</div>
                     <br>
                     <div class="User-profile-display displaytable" style="width: 777px;">
@@ -117,9 +127,9 @@
                                 <input type="text" class="input-box" id=""
                                        name=""
                                        style="width: 45%;" required>
-                                <nput type="number" pattern="[0-9]" class="input-box compactf" id="" name=""
-                                      style="width: 53%;"
-                                      required>
+                                <input type="number" pattern="[0-9]" class="input-box compactf" id="" name=""
+                                       style="width: 53%;"
+                                       required>
                             </div>
 
                             <div class="inputsection">
@@ -133,8 +143,10 @@
                                 <div><input type="file" id="myFile" name="files"></div>
 
                             </div>
-                            <img id="preview" src="#" alt="Preview Image"><br>
-                            <button type="submit" id="add">Request Claim</button>
+                            <div class="bottombutton">
+                                <button type="submit" id="rqphone">Request Phone</button>
+                                <button type="submit" id="add">Request Claim</button>
+                            </div>
                         </form>
                     </div>
                 </div>
