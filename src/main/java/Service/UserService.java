@@ -302,9 +302,9 @@ public class UserService {
     //    This will work after user press the edit button
     public void editUser(int id, Student student) throws SQLException {
 
-        String query = "update details set EMAIL=?, Gender=?, Occupation=?, DOB=?, fullName=?, idtype=?, idnumber=?, authority=?, state=?, date=?, plateno=?, manufacturer=?, motordmg=?, plan=?, vperiod=?,  mobilenumber=?, evalue=? where id=?";
-
-        try (PreparedStatement pstm = new DBConnection().getStatement(query)) {
+        String query = "UPDATE details SET EMAIL=?, Gender=?, Occupation=?, fullName=?, DOB=?, idtype=?, idnumber=?, authority=?, state=?, date=?, plateno=?, manufacturer=?, motordmg=?, plan=?, vperiod=?, mobilenumber=?, evalue=? WHERE id=?";
+        PreparedStatement pstm = new DBConnection().getStatement(query);
+        try {
             pstm.setString(1, student.getEmail());
             pstm.setString(2, student.getGender());
             pstm.setString(3, student.getOccupation());
@@ -324,8 +324,9 @@ public class UserService {
             pstm.setInt(17, student.getEvalue());
             pstm.setInt(18, id);
             pstm.executeUpdate();
-
             System.out.println(pstm);
+        }catch (SQLException e){
+            System.out.println(e);
         }
 
     }

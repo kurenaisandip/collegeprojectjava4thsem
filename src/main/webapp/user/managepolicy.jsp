@@ -129,7 +129,7 @@
                                 <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->
 
                                 <td style="text-align: center;">
-                                    <div><a href="admin?page=gotoeditbook"><img
+                                    <div><a href="User?page=policyDetails&id=<%=student.getId()%>"><img
                                             src="${pageContext.request.contextPath}/CSS/images/icons/edit.svg"
                                             class="manage edit" title="Edit Book"
                                             style="float:left;"></a></div>

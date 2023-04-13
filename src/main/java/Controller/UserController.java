@@ -346,10 +346,10 @@ public class UserController extends HttpServlet {
             student.setDate(request.getParameter("Idate"));
             student.setPlate_No(request.getParameter("Pno"));
             student.setManufacturer(request.getParameter("Man"));
-            student.setEvalue(Integer.parseInt(request.getParameter("Evalue")));
             student.setMotor_Dmg(request.getParameter("Mdmg"));
-            student.setPlanType(request.getParameter("Plan"));
+            student.setPlan(request.getParameter("Plan"));
             student.setValidityPeriod(request.getParameter("Vperiod"));
+            student.setEvalue(Integer.parseInt(request.getParameter("Evalue")));
 
             try {
                 new UserService().editUser(id, student);
