@@ -43,8 +43,8 @@ public class UserController extends HttpServlet {
         }
 
         if (action.equalsIgnoreCase("login")) {
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
+            String email =request.getParameter("email");
+            String password = HashPassword.hashPassword(request.getParameter("password"));
             System.out.printf(email + " " + password + "");
 
             Student student = new UserService().getUser(email, password);
@@ -72,6 +72,7 @@ public class UserController extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("user/Claim.jsp"); // this code is not working
             rd.forward(request, response);
         }
+
 //            To redirect to Change Password
         if (action.equalsIgnoreCase("changepassword")) {
             RequestDispatcher rd = request.getRequestDispatcher("user/changepassword.jsp"); // this code is not working
@@ -89,7 +90,7 @@ public class UserController extends HttpServlet {
 
             student.setUserName(request.getParameter("username"));
             student.setEmail(request.getParameter("email"));
-            student.setPassword(request.getParameter("password"));
+            student.setPassword(HashPassword.hashPassword(request.getParameter("password")));
 
             new UserService().insertUser(student);
 
@@ -107,6 +108,8 @@ public class UserController extends HttpServlet {
 
         if (action != null && action.equalsIgnoreCase("Policy")) {
             Student student = new Student();
+            int userID = (int) request.getSession().getAttribute("uid");
+            System.out.println(userID);
 
             student.setUserName(request.getParameter("uname"));
             student.setDOB(request.getParameter("dob"));
@@ -125,10 +128,12 @@ public class UserController extends HttpServlet {
             student.setMotor_Dmg(request.getParameter("Mdmg"));
             student.setPlanType(request.getParameter("Plan"));
             student.setValidityPeriod(request.getParameter("Vperiod"));
+            student.setBuydate(request.getParameter("buydate"));
+            student.setLastdate(request.getParameter("lastdate"));
 
             System.out.printf("Student model: " + student.getEmail());
 
-            new UserService().insertPolicy(student);
+            new UserService().insertPolicy(userID, student);
 
             // Calculate the premium
             try {
@@ -154,7 +159,6 @@ public class UserController extends HttpServlet {
                         premium = 0.025 * evalue;
                     }
                 }
-//                premium = 20;
                 out.print(premium);
                 out.print("" + student.getPlanType());
 //                    out.print("" + student.getEvalue());
@@ -164,7 +168,7 @@ public class UserController extends HttpServlet {
                 out.print("getPremium" + student.getPremium());
 
 
-                new UserService().insertPremium(student);
+                new UserService().insertPremium(userID, student);
             } catch (Exception e) {
                 out.print("ERROX :" + e);
             }
@@ -175,12 +179,7 @@ public class UserController extends HttpServlet {
             // Set the student object as an attribute to be displayed in the JSP page
             request.setAttribute("student", student);
 
-//                RequestDispatcher rd = request.getRequestDispatcher("quote.jsp");
-//                try {
-//                    rd.forward(request, response);
-//                } catch (ServletException e) {
-//                    throw new RuntimeException(e);
-//                }
+
         }
 
 
@@ -188,11 +187,15 @@ public class UserController extends HttpServlet {
         if (action.equalsIgnoreCase("claim")) {
 
             Student student = new Student();
+            int userID = (int) request.getSession().getAttribute("uid");
+
             Part filePart = request.getPart("files");
             String fileName = filePart.getSubmittedFileName();
-            String filePathName = "C:\\Users\\Jiwan\\IdeaProjects\\CollegeProject\\src\\main\\webapp\\files\\download\\" + fileName;
+            String filePathName = "C:\\Users\\Jiwan\\IdeaProjects\\collegeprojectjava4thsem-updating\\src\\main\\webapp\\files\\" + fileName;
             for (Part part : request.getParts()) {
                 part.write(filePathName);
+
+//
             }
             System.out.println(filePathName);
             try {
@@ -210,7 +213,7 @@ public class UserController extends HttpServlet {
                 System.out.print(student.getAddress());
                 System.out.print(student.getInformation());
                 System.out.print(student.getEmail());
-                new UserService().Claim(student);
+                new UserService().Claim(userID, student);
 
             }
 //                for(SizeCount sc: sclist){
@@ -290,7 +293,8 @@ public class UserController extends HttpServlet {
             out.print("listpolicies");
             Student student = new Student();
 //                student.setUserName("kritesh");
-            List<Student> policyList = new UserService().getPolicyList();
+            int userID = (int) request.getSession().getAttribute("uid");
+            List<Student> policyList = new UserService().getPolicyList(userID);
 //                ArrayList<Student> policyList = new UserService().getPolicyListt();
             out.print("policyList" + policyList.size());
 
@@ -329,6 +333,8 @@ public class UserController extends HttpServlet {
         // this is invoked when user press the edit button
         if (action.equalsIgnoreCase("finaledit")) {
             Student student = new Student();
+            String userID = (String) request.getSession().getAttribute("uid");
+
             int id = Integer.parseInt(request.getParameter("id"));
             student.setUserName(request.getParameter("uname"));
             student.setDOB(request.getParameter("dob"));
@@ -343,14 +349,14 @@ public class UserController extends HttpServlet {
             student.setDate(request.getParameter("Idate"));
             student.setPlate_No(request.getParameter("Pno"));
             student.setManufacturer(request.getParameter("Man"));
-            student.setEvalue(Integer.parseInt(request.getParameter("Evalue")));
             student.setMotor_Dmg(request.getParameter("Mdmg"));
-            student.setPlanType(request.getParameter("Plan"));
+            student.setPlan(request.getParameter("Plan"));
             student.setValidityPeriod(request.getParameter("Vperiod"));
+            student.setEvalue(Integer.parseInt(request.getParameter("Evalue")));
 
             try {
                 new UserService().editUser(id, student);
-                List<Student> policyList = new UserService().getPolicyList();
+                List<Student> policyList = new UserService().getPolicyList(Integer.parseInt(userID));
                 request.setAttribute("policyList", policyList);
                 RequestDispatcher rd = request.getRequestDispatcher("user/managepolicy.jsp");
                 rd.forward(request, response);
@@ -363,12 +369,13 @@ public class UserController extends HttpServlet {
 
 //            For user to delete the policy
         if (action.equalsIgnoreCase("deleteUser")) {
+            String userID = (String) request.getSession().getAttribute("uid");
 //            int id = Integer.parseInt(request.getParameter("policyId"));
             int id = Integer.parseInt(request.getParameter("id"));
 
             UserService userService = new UserService();
             userService.deleteUser(id);
-            List<Student> userList = new UserService().getPolicyList();
+            List<Student> userList = new UserService().getPolicyList(Integer.parseInt(userID));
             request.setAttribute("userList", userList);
             RequestDispatcher rd = request.getRequestDispatcher("user/managepolicy.jsp");
             rd.forward(request, response);
@@ -380,8 +387,8 @@ public class UserController extends HttpServlet {
             Student student = new Student();
             HttpSession session = request.getSession();
             String email = (String) session.getAttribute("email");
-            student.setPassword(request.getParameter("oldpassword"));
-            student.setNewpassword(request.getParameter("newpassword"));
+            student.setPassword(HashPassword.hashPassword(request.getParameter("oldpassword")));
+            student.setNewpassword(HashPassword.hashPassword(request.getParameter("newpassword")));
             new UserService().changePassword(student, email);
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(request, response);
@@ -444,6 +451,15 @@ public class UserController extends HttpServlet {
 //            }
 //        }
 
+        //To redirect in viewpremium
+        if (action.equalsIgnoreCase("viewpremium")) {
+            Student student = new Student();
+
+            List<Student> premiumlist = new UserService().getPremiumList();
+            request.setAttribute("premiumlist", premiumlist);
+            RequestDispatcher rd = request.getRequestDispatcher("user/viewpremium.jsp"); // this code is not working
+            rd.forward(request, response);
+        }
 
 
 

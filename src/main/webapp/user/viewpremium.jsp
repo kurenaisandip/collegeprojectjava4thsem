@@ -1,15 +1,22 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Jiwan
+  Date: 4/11/2023
+  Time: 2:17 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="Service.UserService" %>
 <%@ page import="Model.Student" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.rmi.server.UID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard:::: User</title>
+    <title>Premium</title>
     <link rel="shortcut icon" type="image/jpg" href="CSS/images/LM.ico" />
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/styles.css">
@@ -76,36 +83,36 @@
         <div class="container">
             <div class="user-info-container">
                 <div class="user-info-container-sub">
-                    <div class="User-profile-heading">Manage Policies</div>
+                    <div class="User-profile-heading">ALL Premium</div>
                     <br>
                     <div class="User-profile-display displaytable">
                         <table>
                             <colgroup>
                                 <col span="1" style="width: 4%;">
-                                <col span="1" style="width: 15%;">
-                                <col span="1" style="width: 25%;">
+                                <col span="1" style="width: 20%;">
+                                <col span="1" style="width: 20%;">
                                 <col span="1" style="width: 15%;">
                                 <col span="1" style="width: 8%;">
                                 <col span="1" style="width: 9%;">
-                                <col span="1" style="width: 7%;">
+                                <col span="1" style="width: 9%;">
                             </colgroup>
                             <thead>
                             <tr class="listhead">
                                 <th>id</th>
                                 <th>Username</th>
-                                <th>Email</th>
                                 <th>Phone Number</th>
-                                <th>Plan Period</th>
-                                <th>Value</th>
-                                <th>Action</th>
+                                <th>Evalue</th>
+                                <th>Premium</th>
+                                <th>Bought Date</th>
+                                <th>Next Premium Date</th>
                             </tr>
                             </thead>
                             <tbody id="paginated-list" data-current-page="1" aria-live="polite">
                             <% PrintWriter printt=response.getWriter();
-                            List<Student> policylist = new UserService().getPolicyList(userID);
+                                List<Student> premiumlist = new UserService().getPremiumList();
 
                                 int sn =1;
-                                for (Student student : policylist) {
+                                for (Student student : premiumlist) {
                             %>
                             <tr>
                                 <td style="float:right; height: 24px;">
@@ -113,34 +120,26 @@
 
                                 </td>
                                 <td>
-<%--                                    <!-- <%=sn%>. -->--%>
+                                    <%--                                    <!-- <%=sn%>. -->--%>
                                     <%=student.getUserName()%>
                                 </td>
                                 <td>
-                                    <div class="item" ><%=student.getEmail()%></div>
-                                </td>
-                                <td>
-                                    <%=student.getMobile_Number()%>
-                                </td>
-                                <td>
-                                    <%=student.getValidityPeriod()%>
+                                    <div class="item" ><%=student.getMobile_Number()%></div>
                                 </td>
                                 <td>
                                     <%=student.getEvalue()%>
                                 </td>
+                                <td>
+                                    <%=student.getPremium()%>
+                                </td>
+                                <td>
+                                    <%=student.getBuydate()%>
+                                </td>
 
-                                <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->
+<%--                                <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->--%>
 
                                 <td style="text-align: center;">
-                                    <div><a href="User?page=policyDetails&id=<%=student.getId()%>"><img
-                                            src="${pageContext.request.contextPath}/CSS/images/icons/edit.svg"
-                                            class="manage edit" title="Edit Book"
-                                            style="float:left;"></a></div>
-                                    <div><a href="User?page=deleteUser&id=<%=student.getId()%>"><img
-                                            src="${pageContext.request.contextPath}/CSS/images/icons/delet.svg"
-                                            class="manage lock" title="Remove Book"
-                                            style="float:right;"></a>
-                                    </div>
+                                    <%=student.getLastdate()%>
                                 </td>
 
                             </tr>

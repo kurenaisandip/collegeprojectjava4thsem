@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,25 +9,28 @@
 
     <!----======== CSS ======== -->
     <!-- <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="kritesh2nd.github.io/portfoliojava1/css/style.css"> -->
+<link rel="stylesheet" href="kritesh2nd.github.io/portfoliojava1/css/style.css"> -->
 
     <style>
         /* ===== Google Font Import - Poppins ===== */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-        *{
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
-        body{
+
+        body {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #4070f4;
+            background: #1a98c0;
         }
-        .container{
+
+        .container {
             position: relative;
             max-width: 900px;
             width: 100%;
@@ -34,15 +38,17 @@
             padding: 30px;
             margin: 0 15px;
             background-color: #fff;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         }
-        .container header{
+
+        .container header {
             position: relative;
             font-size: 20px;
             font-weight: 600;
             color: #333;
         }
-        .container header::before{
+
+        .container header::before {
             content: "";
             position: absolute;
             left: 0;
@@ -50,32 +56,36 @@
             height: 3px;
             width: 27px;
             border-radius: 8px;
-            background-color: #4070f4;
+            background-color: #1a98c0;
         }
-        .container form{
+
+        .container form {
             position: relative;
             margin-top: 16px;
             min-height: 490px;
             background-color: #fff;
             overflow: hidden;
         }
-        .container form .form{
+
+        .container form .form {
             position: absolute;
             background-color: #fff;
             transition: 0.3s ease;
         }
-        .container form .form.second{
+
+        .container form .form.second {
             opacity: 0;
             pointer-events: none;
             transform: translateX(100%);
         }
-        form.secActive .form.second{
+
+        form.secActive .form.second {
             opacity: 1;
             pointer-events: auto;
             transform: translateX(0);
         }
 
-        form.secActive .form.second{
+        form.secActive .form.second {
             opacity: 1;
             pointer-events: auto;
             transform: translateX(0);
@@ -83,30 +93,33 @@
 
         /* Third form */
 
-        .container form .form.third{
+        .container form .form.third {
             opacity: 0;
             pointer-events: none;
             transform: translateX(100%);
         }
-        form.secActive .form.third{
+
+        form.secActive .form.third {
             opacity: 1;
             pointer-events: auto;
             transform: translateX(0);
         }
 
-        form.secActive .form.third{
+        form.secActive .form.third {
             opacity: 1;
             pointer-events: auto;
             transform: translateX(0);
         }
+
         /* Ends here */
 
-        form.secActive .form.first{
+        form.secActive .form.first {
             opacity: 0;
             pointer-events: none;
             transform: translateX(-100%);
         }
-        .container form .title{
+
+        .container form .title {
             display: block;
             margin-bottom: 8px;
             font-size: 16px;
@@ -114,24 +127,29 @@
             margin: 6px 0;
             color: #333;
         }
-        .container form .fields{
+
+        .container form .fields {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
         }
-        form .fields .input-field{
+
+        form .fields .input-field {
             display: flex;
             width: calc(100% / 3 - 15px);
             flex-direction: column;
             margin: 4px 0;
         }
-        .input-field label{
+
+        .input-field label {
             font-size: 12px;
             font-weight: 500;
             color: #2e2e2e;
         }
-        .input-field input, select{
+
+        .input-field input,
+        select {
             outline: none;
             font-size: 14px;
             font-weight: 400;
@@ -142,18 +160,23 @@
             height: 42px;
             margin: 8px 0;
         }
+
         .input-field input :focus,
-        .input-field select:focus{
-            box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+        .input-field select:focus {
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
         }
+
         .input-field select,
-        .input-field input[type="date"]{
+        .input-field input[type="date"] {
             color: #707070;
         }
-        .input-field input[type="date"]:valid{
+
+        .input-field input[type="date"]:valid {
             color: #333;
         }
-        .container form button, .backBtn{
+
+        .container form button,
+        .backBtn {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -165,71 +188,80 @@
             color: #fff;
             border-radius: 5px;
             margin: 25px 0;
-            background-color: #4070f4;
+            background-color: #1a98c0;
             transition: all 0.3s linear;
             cursor: pointer;
         }
-        .container form .btnText{
+
+        .container form .btnText {
             font-size: 14px;
             font-weight: 400;
         }
-        form button:hover{
-            background-color: #265df2;
+
+        form button:hover {
+            background-color: #1a98c0;
         }
+
         form button i,
-        form .backBtn i{
+        form .backBtn i {
             margin: 0 6px;
         }
-        form .backBtn i{
+
+        form .backBtn i {
             transform: rotate(180deg);
         }
-        form .buttons{
+
+        form .buttons {
             display: flex;
             align-items: center;
         }
-        form .buttons button , .backBtn{
+
+        form .buttons button,
+        .backBtn {
             margin-right: 14px;
         }
 
         @media (max-width: 750px) {
-            .container form{
+            .container form {
                 overflow-y: scroll;
             }
-            .container form::-webkit-scrollbar{
+
+            .container form::-webkit-scrollbar {
                 display: none;
             }
-            form .fields .input-field{
+
+            form .fields .input-field {
                 width: calc(100% / 2 - 15px);
             }
         }
 
         @media (max-width: 550px) {
-            form .fields .input-field{
+            form .fields .input-field {
                 width: 100%;
             }
         }
 
         /* field box */
 
-        form .Major Damage1 .Plan1 .Period1 .gender-title{
+        form .Major Damage1 .Plan1 .Period1 .gender-title {
             font-size: 20px;
             font-weight: 500;
         }
 
-        form .category{
+        form .category {
             display: flex;
             width: 80%;
-            margin: 14px 0 ;
+            margin: 14px 0;
             justify-content: space-between;
         }
 
-        form .category label{
+        form .category label {
             display: flex;
             align-items: center;
             cursor: pointer;
         }
 
-        form .category label .dot{
+        form .category label .dot {
             height: 18px;
             width: 18px;
             border-radius: 50%;
@@ -238,27 +270,30 @@
             border: 5px solid transparent;
             transition: all 0.3s ease;
         }
-        #dot-1:checked ~ .category label .one,
-        #dot-2:checked ~ .category label .two,
-        #dot-3:checked ~ .category label .three,
-        #dot-4:checked ~ .category label .four{
+
+        #dot-1:checked~.category label .one,
+        #dot-2:checked~.category label .two,
+        #dot-3:checked~.category label .three,
+        #dot-4:checked~.category label .four {
             background: #9b59b6;
             border-color: #d9d9d9;
         }
 
 
-        form .a{
+        form .a {
             display: flex;
             width: 80%;
-            margin: 14px 0 ;
+            margin: 14px 0;
             justify-content: space-between;
         }
-        form .a label{
+
+        form .a label {
             display: flex;
             align-items: center;
             cursor: pointer;
         }
-        form .a label .dot{
+
+        form .a label .dot {
             height: 18px;
             width: 18px;
             border-radius: 50%;
@@ -267,26 +302,28 @@
             border: 5px solid transparent;
             transition: all 0.3s ease;
         }
-        #dot-1:checked ~ .a label .one,
-        #dot-2:checked ~ .a label .two,
-        #dot-3:checked ~ .a label .three
-        #dot-4:checked ~ .a label .four{
+
+        #dot-1:checked~.a label .one,
+        #dot-2:checked~.a label .two,
+        #dot-3:checked~.a label .three #dot-4:checked~.a label .four {
             background: #9b59b6;
             border-color: #d9d9d9;
         }
 
-        form .b{
+        form .b {
             display: flex;
             width: 80%;
-            margin: 14px 0 ;
+            margin: 14px 0;
             justify-content: space-between;
         }
-        form .b label{
+
+        form .b label {
             display: flex;
             align-items: center;
             cursor: pointer;
         }
-        form .b label .dot{
+
+        form .b label .dot {
             height: 18px;
             width: 18px;
             border-radius: 50%;
@@ -295,24 +332,24 @@
             border: 5px solid transparent;
             transition: all 0.3s ease;
         }
-        #dot-1:checked ~ .b label .one,
-        #dot-2:checked ~ .b label .two,
-        #dot-3:checked ~ .b label .three{
+
+        #dot-1:checked~.b label .one,
+        #dot-2:checked~.b label .two,
+        #dot-3:checked~.b label .three {
             background: #9b59b6;
             border-color: #d9d9d9;
         }
 
 
 
-        form input[type="radio"]{
+        form input[type="radio"] {
             display: none;
         }
-        .b1{
+
+        .b1 {
             text-decoration: none;
             color: white;
         }
-
-
     </style>
 
     <!----===== Iconscout CSS ===== -->
@@ -320,6 +357,7 @@
 
     <title>Policy Plan </title>
 </head>
+
 <body>
 <div class="container">
     <header>Policy Plan</header>
@@ -328,6 +366,10 @@
         <div class="form first borderr">
             <div class="details personal">
                 <span class="title">Personal Details</span>
+
+                <input type="hidden" id="policy-start-date" name="buydate">
+                <input type="hidden" id="policy-end-date" name="lastdate">
+
 
                 <div class="fields">
                     <div class="input-field">
@@ -342,18 +384,20 @@
 
                     <div class="input-field">
                         <label>Email</label>
-                        <input type="text" placeholder="Enter your email" name="uemail" value="sandip@123gmail.com" required>
+                        <input type="text" placeholder="Enter your email" name="uemail" value="sandip@123gmail.com"
+                               required>
                     </div>
 
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="number" placeholder="Enter mobile number" name="mobilenumber" value="98744444444" required>
+                        <input type="number" placeholder="Enter mobile number" name="mobilenumber" value="98744444444"
+                               required>
                     </div>
 
                     <div class="input-field">
                         <label>Gender</label>
-                        <select name="gender"  value="Male"required>
-                            <option >Select gender</option>
+                        <select name="gender" value="Male" required>
+                            <option>Select gender</option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>Others</option>
@@ -362,7 +406,7 @@
 
                     <div class="input-field">
                         <label>Occupation</label>
-                        <input type="text" placeholder="Enter your occupation" name="occupation"  value="Student" required>
+                        <input type="text" placeholder="Enter your occupation" name="occupation" value="Student" required>
                     </div>
                 </div>
             </div>
@@ -383,7 +427,7 @@
 
                     <div class="input-field">
                         <label>Issued Authority</label>
-                        <input type="text" placeholder="Enter issued authority" name="Auth"  value="Virinchi" required>
+                        <input type="text" placeholder="Enter issued authority" name="Auth" value="Virinchi" required>
                     </div>
 
                     <div class="input-field">
@@ -393,7 +437,7 @@
 
                     <div class="input-field">
                         <label>Name on Card</label>
-                        <input type="text" placeholder="Enter your Id name " value="Sandip Rai"  required>
+                        <input type="text" placeholder="Enter your Id name " value="Sandip Rai" required>
                     </div>
 
                     <div class="input-field">
@@ -431,7 +475,8 @@
 
                     <div class="input-field">
                         <label>Estimated value</label>
-                        <input type="text" placeholder="Enter the price of Vehicle" name="Evalue"  value="1222222" required>
+                        <input type="text" placeholder="Enter the price of Vehicle" name="Evalue" value="1222222"
+                               required>
                     </div>
 
 
@@ -445,8 +490,8 @@
 
                     <div class="input-field">
                         <label>Motor dmg</label>
-                        <select name="Mdmg"  value="Motor" required>
-                            <option >Select one</option>
+                        <select name="Mdmg" value="Motor" required>
+                            <option>Select one</option>
                             <option>Motor</option>
                             <option>Wheels</option>
                             <option>Body</option>
@@ -457,8 +502,8 @@
                     <div class="input-field">
                         <label>Plan</label>
                         <select name="Plan" value="All Risk" required>
-                            <%--              <option disabled selected>Select your plan</option>--%>
-                            <option >Select your plan</option>
+                            <%-- <option disabled selected>Select your plan</option>--%>
+                            <option>Select your plan</option>
                             <option>Obligatory</option>
                             <option>All Risk</option>
                             <option>Vehicle Dmg</option>
@@ -469,7 +514,7 @@
                     <div class="input-field">
                         <label>Validity Period</label>
                         <select name="Vperiod" value="1" required>
-                            <option >Select years</option>
+                            <option>Select years</option>
                             <option>1 year</option>
                             <option>2 years</option>
                             <option>3 years</option>
@@ -483,7 +528,7 @@
                             <span class="btnText">Back</span>
                         </div>
                         <button class="sumbit">
-                            <span class="btnText"><a  class="b1">Submit</a></span>
+                            <span class="btnText"><a class="b1">Submit</a></span>
                             <i class="uil uil-navigator"></i>
 
                         </button>
@@ -503,17 +548,32 @@
 
 <!--    Javascript for buttons-->
 <script>
+
+<%--    <% --To set the start date and last date-- %>--%>
+    function setPolicyDates() {
+        var startDate = new Date();
+        var endDate = new Date(startDate);
+
+        // Set the end date to 6 months from the start date
+        endDate.setMonth(endDate.getMonth() + 6);
+
+        // Set the start date and end date in the hidden form fields
+        document.getElementById("policy-start-date").value = startDate.toISOString().substr(0, 10); // Format: YYYY-MM-DD
+        document.getElementById("policy-end-date").value = endDate.toISOString().substr(0, 10); // Format: YYYY-MM-DD
+    }
+
+    setPolicyDates();
     const form = document.querySelector("form"),
         nextBtn = form.querySelector(".nextBtn"),
         backBtn = form.querySelector(".backBtn"),
         allInput = form.querySelectorAll(".first input");
 
 
-    nextBtn.addEventListener("click", ()=> {
+    nextBtn.addEventListener("click", () => {
         allInput.forEach(input => {
-            if(input.value != ""){
+            if (input.value != "") {
                 form.classList.add('secActive');
-            }else{
+            } else {
                 form.classList.remove('secActive');
             }
         })
@@ -522,4 +582,5 @@
     backBtn.addEventListener("click", () => form.classList.remove('secActive'));
 </script>
 </body>
+
 </html>
