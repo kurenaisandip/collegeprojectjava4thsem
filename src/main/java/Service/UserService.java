@@ -272,7 +272,7 @@ public class UserService {
 
     //    For registering the claim of their insurance
     public void Claim(int userID, Student student) {
-        String query = "insert into claim (name, policy, address, email, number, info, file, uid ) values (?,?,?,?,?,?,?,?)";
+        String query = "insert into claim (name, policy, address, email, number, info, file, buydate,  uid ) values (?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
             ps.setString(1, student.getUserName());
@@ -282,7 +282,9 @@ public class UserService {
             ps.setString(5, student.getMobile_Number());
             ps.setString(6, student.getInformation());
             ps.setString(7, student.getImages());
-            ps.setString(8, String.valueOf(userID));
+            ps.setString(8, student.getBuydate());
+            ps.setString(9, String.valueOf(userID));
+
             ps.executeUpdate();
             System.out.println(ps);
         } catch (SQLException e) {
@@ -407,16 +409,18 @@ public class UserService {
                 String email = rs.getString("email");
                 String info = rs.getString("info");
                 String images = rs.getString("file");
+                String buydate = rs.getString("buydate");
 
 
 
                 details.put("name", name);
                 details.put("phone_number", phoneNumber);
-                details.put("evalue", policy);
+                details.put("policy", policy);
                 details.put("email", email);
                 details.put("info", info);
                 details.put("image", base64Image);
                 details.put("images", images);
+                details.put("buydate", buydate);
 
             }
         } catch (IOException e) {
@@ -467,6 +471,37 @@ public class UserService {
             e.printStackTrace();
         }
         return premiumlist1;
+    }
+
+    public static List<Student> getclaimlist(int userID) {
+        List<Student> claimlist = new ArrayList<>();
+        String query = "SELECT  id,name, number, policy, email, info, buydate, status " + "FROM claim " + "WHERE uid = ?";
+
+
+        PreparedStatement pstm = new DBConnection().getStatement(query);
+        try {
+            pstm.setInt(1, Integer.parseInt(String.valueOf(userID)));
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next()) {
+                Student student = new Student();
+                student.setId(rs.getInt("id"));
+                student.setUserName(rs.getString("name"));
+                student.setMobile_Number(rs.getString("number"));
+                student.setPlanType(rs.getString("policy"));
+                student.setEmail(rs.getString("email"));
+                student.setInformation(rs.getString("info"));
+                student.setBuydate(rs.getString("buydate"));
+                student.setStatus(rs.getString("status"));
+
+                claimlist.add(student);
+
+                System.out.println(pstm);
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return claimlist;
     }
 
 

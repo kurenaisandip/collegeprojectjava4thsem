@@ -41,8 +41,8 @@
                     <a href="User?page=policyplan">
                         <li class="listitem sublistitem">Add Policy</li>
                     </a>
-                    <a href="../admin?page=gotomanagebook"> // from here sorting will be done
-                        <li class="listitem sublistitem">View Policies</li>
+                    <a href="User?page=viewpremium"> // from here sorting will be done
+                        <li class="listitem sublistitem">View Premium</li>
                     </a>
                     <a href="User?page=listpolicies">
                         <li class="listitem sublistitem">Manage Policy</li>
@@ -52,7 +52,7 @@
             <a href="User?page=claiminsurance">
                 <li class="listitem">Claim</li>
             </a>
-            <a href="User?page=viewpremium">
+            <a href="User?page=viewresult">
                 <li class="listitem">View Result</li>
             </a>
             <a href="User?page=changepassword">

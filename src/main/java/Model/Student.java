@@ -235,6 +235,15 @@ public class Student {
     String validityPeriod;
     String planType;
     double premium;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public double getPropertyValue() {
         return propertyValue;

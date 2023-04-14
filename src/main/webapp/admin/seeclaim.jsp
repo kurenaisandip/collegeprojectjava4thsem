@@ -91,6 +91,8 @@
                 </div>
                 <div class="compactd">
                   <span>a</span>
+                  <%--        <p>${details.btitle}a</p>--%>
+                  <%--        <p>${details.bauthor}a</p>--%>
                 </div>
               </div>
               <div class="label inputsection inputsection-sub">

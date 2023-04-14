@@ -1,31 +1,45 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Jiwan
+  Date: 4/11/2023
+  Time: 2:17 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page import="Service.UserService" %>
 <%@ page import="Model.Student" %>
 <%@ page import="java.util.List" %>
-<%@ page import="java.io.PrintWriter" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<%@ page import="java.util.HashMap" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>${details.btitle} | Library Management System</title>
-    <link rel="shortcut icon" type="image/jpg" href="..CSS/images/LM.ico"/>
+    <title>Premium</title>
+    <link rel="shortcut icon" type="image/jpg" href="CSS/images/LM.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/styles.css">
     <script src="https://kit.fontawesome.com/6f3a65e23d.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+<!--welcome face-->
 <header>
     <div class="pagehead">
         <div class="headtitles" id="headtitlesfix">
             <div class="one">
                 <ul>
-                    <li><a href="user?page=home"><img src="${pageContext.request.contextPath}/CSS/images/LMB.png"
-                                                      id="logo"></a></li>
+                    <li><a href="User?page=return"><img src="CSS/images/LMB.png" id="logo"></a></li>
                 </ul>
             </div>
             <div class="two">
                 <ul>
                     <li>
-                        <form action="user?page=userbsearch" method="post">
+                        <form action="User?page=search" method="post">
                             <input type="search" name="query" id="search" placeholder="Search...">
                             <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
                         </form>
@@ -40,6 +54,7 @@
         </div>
     </div>
 </header>
+
 <div class="parent">
     <section class="admin-nav">
         <span id="adminid">User Panel</span>
@@ -71,123 +86,107 @@
         <div class="container">
             <div class="user-info-container">
                 <div class="user-info-container-sub">
-                    <div class="User-profile-heading">View</div>
+                    <div class="User-profile-heading">ALL Claims</div>
+                    <br>
+                    <div class="User-profile-display displaytable">
+                        <table>
+                            <colgroup>
+                                <col span="1" style="width: 4%;">
+                                <col span="1" style="width: 20%;">
+                                <col span="1" style="width: 20%;">
+                                <col span="1" style="width: 15%;">
+                                <col span="1" style="width: 8%;">
+                                <col span="1" style="width: 9%;">
+                                <col span="1" style="width: 9%;">
+                            </colgroup>
+                            <thead>
+                            <tr class="listhead">
+                                <th>id</th>
+                                <th>Username</th>
+                                <th>Phone Number</th>
+                                <th>Evalue</th>
+                                <th>Premium</th>
+                                <th> Date</th>
+                                <th>Next Premium Date</th>
+                            </tr>
+                            </thead>
+                            <c:forEach var="viewresult" items="${viewresult}" varStatus="status" >
+                            <tbody id="paginated-list" data-current-page="1" aria-live="polite">
 
-                    <div class="book-info-form">
+                            <tr>
+                                <td style="float:right; height: 24px;">
+                            ${status.count}
 
-                        <div class="book-details">
-                            <div class="label inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <label>First Name:</label>
-                                </div>
-                                <div class="compactd">
-                                    <label>Last Name:</label>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="displayfields inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <span>a</span>
-                                </div>
-                                <div class="compactd">
-                                    <span>a</span>
-                                    <%--        <p>${details.btitle}a</p>--%>
-                                    <%--        <p>${details.bauthor}a</p>--%>
-                                </div>
-                            </div>
-                            <div class="label inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <label>Insurance Policy:</label>
-                                </div>
-                                <div class="compactd">
-                                    <label>Address:</label>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="displayfields inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <span>a</span>
-                                </div>
-                                <div class="compactd">
-                                    <span>a</span>
-                                    <%--        <p>${details.btitle}a</p>--%>
-                                    <%--        <p>${details.bauthor}a</p>--%>
-                                </div>
-                            </div>
-                            <div class="label inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <label>Email:</label>
-                                </div>
-                                <div class="compactd">
-                                    <label>Phone:</label>
-                                </div>
-                                <br>
-                            </div>
-                            <div class="displayfields inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <span>a</span>
-                                </div>
-                                <div class="compactd">
-                                    <span>a</span>
-                                    <%--        <p>${details.btitle}a</p>--%>
-                                    <%--        <p>${details.bauthor}a</p>--%>
-                                </div>
-                            </div>
+                                </td>
+                                <td>
+                                    <%--                                    <!-- <%=sn%>. -->--%>
+                                        ${viewresult.userName}
+                                </td>
+                                <td>
+                                    <div class="item" >${viewresult.mobile_Number}</div>
+                                </td>
+                                <td>
+                                    ${viewresult.email}
+                                </td>
+                                <td>
+                                    ${viewresult.information}
+                                </td>
+                                <td>
+                                    ${viewresult.planType}
 
-                            <div class="label inputsection inputsection-sub">
-                                <div class="compactd">
-                                    <label>Additonal information:</label>
-                                </div>
-                            </div>
-                            <div class="displayfields inputsection inputsection-sub">
-                                <div>
-                                    <span>a</span>
-                                    <%--        <p>${details.btitle}a</p>--%>
-                                    <%--        <p>${details.bauthor}a</p>--%>
-                                </div>
-                            </div>
-                        </div>
+                                </td>
+
+                                <%--                                <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->--%>
+
+                                <td style="text-align: center;">
+                                    ${viewresult.buydate}
+                                </td>
+
+                            </tr>
 
 
+                            </tbody>
+                            </c:forEach>
+                        </table>
+                        <nav class="pagination-container">
+                            <button class="pagination-button" id="prev-button" aria-label="Previous page"
+                                    title="Previous page">
+                                &lt;
+                            </button>
+
+                            <div id="pagination-numbers">
+
+                            </div>
+
+                            <button class="pagination-button" id="next-button" aria-label="Next page"
+                                    title="Next page">
+                                &gt;
+                            </button>
+                        </nav>
                     </div>
-                </div>
-                <div class="book-info-form">
-                    <div class="book-image-reservation">
-                        <div class="book-image-container">
-                            <img class="book-image"
-                                 src="${pageContext.request.contextPath}src/main/webapp/files/horkita.jpg">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bottombutton" style="margin-bottom: 50px;">
-                    <button type="submit" id="accept">Accept Claim</button>
-                    <button type="submit" id="reject">Reject Claim</button>
                 </div>
             </div>
         </div>
 
     </section>
 </div>
-
-
-</div>
-<div class="container" id="notification">
-    <div class="notifcard" id="registercard">
-        <br>
-        <a class="signup">Book Registered!</a>
-        <button class="enter" onclick="off()">OK</button>
-    </div>
-    <div id="shadowlayern" onclick="off()"></div>
-</div>
+<script src="CSS/paginationscript.js"></script>
 <script>
-    function on() {
-        document.getElementById("notification").style.display = "block";
-    }
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
-    function off() {
-        document.getElementById("notification").style.display = "none";
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var collapseitem = this.nextElementSibling;
+            if (collapseitem.style.display === "block") {
+                collapseitem.style.display = "none";
+            } else {
+                collapseitem.style.display = "block";
+            }
+        });
     }
 </script>
 </body>
+
 </html>

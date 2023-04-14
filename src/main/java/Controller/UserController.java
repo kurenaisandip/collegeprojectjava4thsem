@@ -17,7 +17,6 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 
-
 @MultipartConfig
 @WebServlet(name = "UserController", value = "/User")
 public class UserController extends HttpServlet {
@@ -205,6 +204,8 @@ public class UserController extends HttpServlet {
                 student.setEmail(request.getParameter("email"));
                 student.setMobile_Number((request.getParameter("phone_number")));
                 student.setInformation(request.getParameter("info"));
+                student.setBuydate(request.getParameter("buydate"));
+
                 student.setImages(filePathName);
                 System.out.println(student.getUserName());
                 System.out.print(student.getPlan());
@@ -254,6 +255,8 @@ public class UserController extends HttpServlet {
 //        }
         if (action.equalsIgnoreCase("showimage")) {
 
+            System.out.println("here in the show image or view reults");
+
             Student student = new Student();
             student.setId(Integer.parseInt(request.getParameter("id")));
             HashMap<String, Object> details = null;
@@ -264,19 +267,9 @@ public class UserController extends HttpServlet {
             }
             request.setAttribute("details", details);
 
-            RequestDispatcher rd = request.getRequestDispatcher("user/claimdetails.jsp");
-            rd.forward(request, response);
+//            RequestDispatcher rd = request.getRequestDispatcher("user/viewresult.jsp");
+//            rd.forward(request, response);
 
-        }
-
-
-        // for searching users
-        if (action.equalsIgnoreCase("search")) {
-            String query = request.getParameter("query");
-            List<Student> searchResults = UserService.searchUsers(query);
-            request.setAttribute("searchResults", searchResults);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("user/search-results.jsp");
-            dispatcher.forward(request, response);
         }
 
         // For redirecting to forgot password
@@ -407,51 +400,7 @@ public class UserController extends HttpServlet {
             requestDispatcher.forward(request, response);
         }
 
-//            for downloading image
-//        if (action.equalsIgnoreCase("download")) {
-// // reads input file path from the request parameter
-//            String filePath = request.getParameter("path");
-//            if (filePath == null || filePath.isEmpty()) {
-//                response.sendError(HttpServletResponse.SC_BAD_REQUEST, "File path is missing");
-//                return;
-//            }
-////
-////            // check if the file exists and is readable
-//            File downloadFile = new File(filePath);
-//            if (!downloadFile.exists() || !downloadFile.canRead()) {
-//                response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found or cannot be read");
-//                return;
-//            }
-//
-//            // obtains ServletContext
-//            ServletContext context = getServletContext();
-//
-//            // gets MIME type of the file
-//            String mimeType = context.getMimeType(filePath);
-//            if (mimeType == null) {
-//                // set to binary type if MIME mapping not found
-//                mimeType = "application/octet-stream";
-//            }
-//
-//            // modifies response
-//            response.setContentType(mimeType);
-//            response.setContentLength((int) downloadFile.length());
-//
-//            // forces download
-//            String headerKey = "Content-Disposition";
-//            String headerValue = String.format("attachment; filename=\"%s\"", downloadFile.getName());
-//            response.setHeader(headerKey, headerValue);
-//
-//            // obtains response's output stream
-//            OutputStream outStream = response.getOutputStream();
-//            try (FileInputStream inStream = new FileInputStream(downloadFile)) {
-//                byte[] buffer = new byte[4096];
-//                int bytesRead = -1;
-//                while ((bytesRead = inStream.read(buffer)) != -1) {
-//                    outStream.write(buffer, 0, bytesRead);
-//                }
-//            }
-//        }
+
 
         //To redirect in viewpremium
         if (action.equalsIgnoreCase("viewpremium")) {
@@ -464,10 +413,40 @@ public class UserController extends HttpServlet {
         }
 
 
+        // for searching users
+        if (action.equalsIgnoreCase("search")) {
+            String query = request.getParameter("query");
+            List<Student> searchResults = UserService.searchUsers(query);
+            request.setAttribute("searchResults", searchResults);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("user/search-results.jsp");
+            dispatcher.forward(request, response);
+        }
+
+ // To return to homepage
+        if (action.equalsIgnoreCase("return")) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("user/dashboard.jsp");
+            dispatcher.forward(request, response);
+        }
 
 
+//to show the result
 
+        if (action.equalsIgnoreCase("viewresult")) {
 
+            System.out.println("here in the show image or view reults");
+            Student student = new Student();
+            int userID = (int) request.getSession().getAttribute("uid");
+            List<Student> viewresult = new UserService().getclaimlist(userID);
+//                ArrayList<Student> policyList = new UserService().getPolicyListt();
+            out.print("policyList" + viewresult.size());
+
+            request.setAttribute("student", student);
+            request.setAttribute("viewresult", viewresult);
+
+            RequestDispatcher rd = request.getRequestDispatcher("user/viewresult.jsp");
+            rd.forward(request, response);
+
+        }
 
 
 

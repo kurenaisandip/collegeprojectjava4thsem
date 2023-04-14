@@ -57,7 +57,7 @@
         <div class="user-info-container-sub">
             <c:if test="${not empty searchResults}">
                 <c:choose>
-                    <c:when test="${not empty query}">
+                    <c:when test="${not empty query}">  <%-- why is this query not showing in the page --%>
                         <p class="User-profile-heading">Matching results for "${query}"</p>
                     </c:when>
                     <c:when test="${empty searchResults}">
@@ -95,13 +95,13 @@
                     <c:forEach items="${searchResults}" var="student" varStatus="status">
                         <tr>
                             <td>${status.count}</td>
-                            <td><a href="" class="infolink">${student.userName}</a> </td>
+                            <td>${student.userName}</td>
                             <td>${student.email}</td>
                             <td>${student.mobile_Number}</td>
-                            <td>${student.mobile_Number}</td>
-                            <td><div><a href=""><img
+                            <td>${student.plan}</td>
+                            <td><div><a href="User?page=policyDetails&id=${student.id}"><img
                                     src="${pageContext.request.contextPath}/CSS/images/icons/three-dots.svg"
-                                    class="manage lock" title="Remove Book"
+                                    class="manage lock" title="More Details"
                                     style="width: 20px;"></a>
                             </div></td>
                         </tr>
