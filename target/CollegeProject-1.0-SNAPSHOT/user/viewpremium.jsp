@@ -36,7 +36,7 @@
             <div class="two">
                 <ul>
                     <li>
-                        <form action="user?page=userbsearch" method="post">
+                        <form action="User?page=search" method="post">
                             <input type="search" name="query" id="search" placeholder="Search...">
                             <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
                         </form>
@@ -83,7 +83,7 @@
         <div class="container">
             <div class="user-info-container">
                 <div class="user-info-container-sub">
-                    <div class="User-profile-heading">Manage Policies</div>
+                    <div class="User-profile-heading">ALL Premium</div>
                     <br>
                     <div class="User-profile-display displaytable">
                         <table>
@@ -136,7 +136,7 @@
                                     <%=student.getBuydate()%>
                                 </td>
 
-                                <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->
+<%--                                <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->--%>
 
                                 <td style="text-align: center;">
                                     <%=student.getLastdate()%>

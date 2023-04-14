@@ -33,7 +33,7 @@
     <tr>
         <td><a href="User?page=userEdit&id=${student.id}">Edit</a></td>
 <%--        <td><a href="User?page=deleteUser&id=${student.id}">Delete</a></td>--%>
-        <td><a href="User?page=deleteUser&id=${student.id}">Delete</a></td>
+<%--        <td><a href="User?page=deleteUser&id=${student.id}">Delete</a></td>--%>
 
     </tr>
 </form>

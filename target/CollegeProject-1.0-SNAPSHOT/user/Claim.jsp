@@ -80,15 +80,15 @@
                             <input type="hidden" id="policy-end-date" name="lastdate">
                             <div class="inputsection inputsection-sub" style="margin-bottom: 0px;">
                                 <div class="compact">
-                                    <label for="">First Name:</label>
+                                    <label for="first_name">First Name:</label>
                                 </div>
                                 <div class="compact">
                                     <label for="">Last Name:</label>
                                 </div>
                             </div>
                             <div class="inputsection inputsection-sub">
-                                <input type="text" class="input-box" id=""
-                                       name=""
+                                <input type="text" class="input-box" id="first_name"
+                                       name="name"
                                        style="width: 45%;" required>
                                 <input type="text" class="input-box compactf" id="" name=""
                                        style="width: 53%;"
@@ -96,14 +96,14 @@
                             </div>
                             <div class="inputsection inputsection-sub" style="margin-bottom: 0px;">
                                 <div class="compact">
-                                    <label for="">Insurance Policy:</label>
+                                    <label for="Insurance_policy">Insurance Policy:</label>
                                 </div>
                                 <div class="compact">
-                                    <label for="">Address:</label>
+                                    <label for="address">Address:</label>
                                 </div>
                             </div>
                             <div class="inputsection inputsection-sub">
-                                <select class="input-box" id="" name="" style="width: 45%;"
+                                <select class="input-box" id="Insurance_policy" name="Insurance_policy" style="width: 45%;"
                                         required>
                                     <option value="" disabled selected>-- Select a policy --</option>
                                     <option value="">Policy A</option>
@@ -111,30 +111,30 @@
                                     <option value="">Policy C</option>
 
                                 </select>
-                                <input type="text" class="input-box compactf" id="" name=""
+                                <input type="text" class="input-box compactf" id="address" name="address"
                                        style="width: 53%;"
                                        required>
                             </div>
                             <div class="inputsection inputsection-sub" style="margin-bottom: 0px;">
                                 <div class="compact">
-                                    <label for="">Email:</label>
+                                    <label for="email">Email:</label>
                                 </div>
                                 <div class="compact">
-                                    <label for="">Phone:</label>
+                                    <label for="phone_number">Phone:</label>
                                 </div>
                             </div>
                             <div class="inputsection inputsection-sub">
-                                <input type="text" class="input-box" id=""
-                                       name=""
+                                <input type="text" class="input-box" id="email"
+                                       name="email"
                                        style="width: 45%;" required>
-                                <input type="number" pattern="[0-9]" class="input-box compactf" id="" name=""
+                                <input type="number" pattern="[0-9]" class="input-box compactf" id="phone_number" name="phone_number"
                                        style="width: 53%;"
                                        required>
                             </div>
 
                             <div class="inputsection">
-                                <label for="">Additional Info:</label><br>
-                                <textarea id="textarea" name="" rows="5"></textarea><br>
+                                <label for="textarea">Additional Info:</label><br>
+                                <textarea id="textarea" name="info" rows="5"></textarea><br>
                             </div>
 
                             <div class="inputsection fileup">
@@ -144,7 +144,7 @@
 
                             </div>
                             <div class="bottombutton">
-                                <button type="submit" id="rqphone">Request Phone</button>
+                                <button type="submit" id="rqphone" value="9845860441">Request Phone</button>
                                 <button type="submit" id="add">Request Claim</button>
                             </div>
                         </form>
