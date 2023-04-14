@@ -1242,6 +1242,13 @@ table tbody tr td {
     filter: invert(51%) sepia(98%) saturate(1560%) hue-rotate(181deg) brightness(95%) contrast(102%);
 }
 
+#moreinf{
+    width: 10px;
+}
+.moreinf:hover {
+    filter: invert(51%) sepia(98%) saturate(1560%) hue-rotate(181deg) brightness(95%) contrast(102%);
+}
+
 .unlock:hover {
     filter: invert(62%) sepia(72%) saturate(495%) hue-rotate(42deg) brightness(90%) contrast(90%);
 }

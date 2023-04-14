@@ -10,10 +10,7 @@ import jakarta.servlet.http.Part;
 import java.io.*;
 import java.nio.file.Files;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class UserService {
 
@@ -46,11 +43,12 @@ public class UserService {
             ps.setString(2, password);
 
             ResultSet rs = ps.executeQuery();
+            System.out.println(ps);
 
             while (rs.next()) {
                 student = new Student();
 
-                student.setId(rs.getInt("id"));
+                student.setId(rs.getInt("uid"));
                 student.setUserName(rs.getString("username"));
                 student.setEmail(rs.getString("email"));
                 student.setPassword(rs.getString("password"));
@@ -61,11 +59,14 @@ public class UserService {
         return student;
     }
 
-    public Student insertPolicy(Student student) {
 
-        String query = "insert into details (EMAIL,Gender,Occupation,fullname,DOB,idtype,idnumber,authority,state,date,plateno,manufacturer,motordmg,plan,vperiod, mobilenumber, evalue, buydate, lastdate) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    // this is for inserting the policy plan
+    public Student insertPolicy(int userID, Student student) {
+
+        String query = "insert into details (EMAIL,Gender,Occupation,fullname,DOB,idtype,idnumber,authority,state,date,plateno,manufacturer,motordmg,plan,vperiod, mobilenumber, evalue, buydate, lastdate, uid) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
+            System.out.println("i am inside the insert policy");
             ps.setString(1, student.getEmail());
             ps.setString(2, student.getGender());
             ps.setString(3, student.getOccupation());
@@ -85,58 +86,14 @@ public class UserService {
             ps.setInt(17, student.getEvalue());
             ps.setString(18, student.getBuydate());
             ps.setString(19, student.getLastdate());
-            System.out.println("OB : " + student.getDOB());
+            ps.setString(20, String.valueOf(userID));
+//            System.out.println("uid : " + userID);
             System.out.printf("" + ps);
             ps.execute();
-
-//            ResultSet rs = ps.executeQuery();
-////            int rowsAffected = ps.executeUpdate();
-//
-//
-//            while (rs.next()) {
-//                student = new Student();
-//
-//                student.setEmail("uemail");
-//                student.setGender("gender");
-//                student.setOccupation("occupation");
-//                student.setUserName("uname");
-//                student.setDOB("dob");
-//                student.setId_Type("ID");
-//                student.setId_number("IDno");
-//                student.setAuthority("Auth");
-//                student.setState("Istate");
-//                student.setDate("Idate");
-//                student.setPlate_No("Pno");
-//                student.setManufacturer("Man");
-//                student.setMotor_Dmg("Mdmg");
-//                student.setPlanType("Plan");
-//                student.setValidityPeriod("Vperiod");
-//                student.setMobile_Number("mobilenumber");
-//                student.setEvalue(Integer.parseInt("Evalue"));
-//
-//                // calculate the covergae
-////                if ("basic".equals(planType)) {
-////                    coverage = propertyValue * 0.5;
-////                } else if ("standard".equals(planType)) {
-////                    coverage = propertyValue * 0.75;
-////                } else if ("premium".equals(planType)) {
-////                    coverage = propertyValue * 0.9;
-////                } else {
-////                    // handle unknown plan type
-////                }
-////
-//////                calculate the premium
-////                if ("basic".equals(planType)) {
-////                    premium = propertyValue * 0.01 * validityPeriod;
-////                } else if ("standard".equals(planType)) {
-////                    premium = propertyValue * 0.02 * validityPeriod;
-////                } else if ("premium".equals(planType)) {
-////                    premium = propertyValue * 0.03 * validityPeriod;
-////                }
-//
-//            }
-
         } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e) {
             e.printStackTrace();
         }
         return student;
@@ -145,14 +102,15 @@ public class UserService {
 
 //    For storing the premium in database
 
-    public void insertPremium(Student student) {
-        String query = "insert into premium (Name, PhoneNumber, Evalue, Premium) values (?,?,?,?)";
+    public void insertPremium(int userID ,Student student) {
+        String query = "insert into premium (Name, PhoneNumber, Evalue, Premium, uid) values (?,?,?,?,?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
             ps.setString(1, student.getUserName());
             ps.setString(2, student.getMobile_Number());
             ps.setInt(3, student.getEvalue());
             ps.setDouble(4, student.getPremium());
+            ps.setString(5, String.valueOf(userID));
             System.out.println(ps);
             ps.executeUpdate();
 
@@ -165,13 +123,15 @@ public class UserService {
 
 //    helper of getPolicyList in the Manage policy
 
-    public List<Student> getPolicyList() {
+    public List<Student> getPolicyList(int userID) {
         System.out.println("getPolicyList");
         List<Student> userList = new ArrayList<>();
-        String query = "select * from details";
+        String query = "SELECT * FROM details WHERE uid = ?";
         System.out.println(query);
         PreparedStatement pstm = new DBConnection().getStatement(query);
         try {
+            pstm.setInt(1, Integer.parseInt(String.valueOf(userID)));
+            System.out.println(userID);
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 Student student = new Student();
@@ -204,33 +164,6 @@ public class UserService {
         }
         return userList;
     }
-
-//    public ArrayList<Student> getPolicyListt() {
-//        System.out.println("getPolicyList");
-//        ArrayList<Student> policyList = new ArrayList<>();
-//        String query = "select * from details";
-//        System.out.println(query);
-//        PreparedStatement pstm = new DBConnection().getStatement(query);
-//        try {
-//            ResultSet rs = pstm.executeQuery();
-//            while (rs.next()) {
-//                Student student = new Student();
-//                student.setId(rs.getInt("id"));
-//                student.setUserName(rs.getString("fullname"));
-//                student.setEmail(rs.getString("EMAIL"));
-//                student.setMobile_Number(rs.getString("mobilenumber"));
-//                student.setValidityPeriod(rs.getString("vperiod"));
-//                student.setEvalue(rs.getInt("evalue"));
-//                policyList.add(student);
-//            }
-//            rs.close();
-//            pstm.close();
-//            System.out.println("policyList.size()"+policyList.size());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return policyList;
-//    }
 
 
     //    For getting details of individual detail of policy that user has bought
@@ -302,9 +235,11 @@ public class UserService {
     //    This will work after user press the edit button
     public void editUser(int id, Student student) throws SQLException {
 
+        System.out.println("hello edit user ");
         String query = "UPDATE details SET EMAIL=?, Gender=?, Occupation=?, fullName=?, DOB=?, idtype=?, idnumber=?, authority=?, state=?, date=?, plateno=?, manufacturer=?, motordmg=?, plan=?, vperiod=?, mobilenumber=?, evalue=? WHERE id=?";
         PreparedStatement pstm = new DBConnection().getStatement(query);
         try {
+            System.out.println("inside the edit user or final edit ");
             pstm.setString(1, student.getEmail());
             pstm.setString(2, student.getGender());
             pstm.setString(3, student.getOccupation());
@@ -328,16 +263,16 @@ public class UserService {
         }catch (SQLException e){
             System.out.println(e);
         }
-
     }
+
 
 
 //    this will work when user make final change in the update details
 
 
     //    For registering the claim of their insurance
-    public void Claim(Student student) {
-        String query = "insert into claim (name, policy, address, email, number, info, file ) values (?,?,?,?,?,?, ?)";
+    public void Claim(int userID, Student student) {
+        String query = "insert into claim (name, policy, address, email, number, info, file, uid ) values (?,?,?,?,?,?,?,?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
             ps.setString(1, student.getUserName());
@@ -347,6 +282,7 @@ public class UserService {
             ps.setString(5, student.getMobile_Number());
             ps.setString(6, student.getInformation());
             ps.setString(7, student.getImages());
+            ps.setString(8, String.valueOf(userID));
             ps.executeUpdate();
             System.out.println(ps);
         } catch (SQLException e) {
@@ -360,10 +296,17 @@ public class UserService {
     // For searching the users
     public static List<Student> searchUsers(String query) {
         List<Student> search = new ArrayList<>();
-        String sql = "SELECT * FROM details WHERE fullname LIKE ? OR EMAIL LIKE ?";
+        String sql = "SELECT * FROM details WHERE fullname LIKE ? OR EMAIL LIKE ? OR plateno LIKE ? OR mobilenumber LIKE ? OR plan LIKE ? OR vperiod LIKE ? OR evalue LIKE ? OR buydate LIKE ? OR lastdate LIKE ?";
         try (PreparedStatement ps = new DBConnection().getStatement(sql);) {
             ps.setString(1, "%" + query + "%");
             ps.setString(2, "%" + query + "%");
+            ps.setString(3, "%" + query + "%");
+            ps.setString(4, "%" + query + "%");
+            ps.setString(5, "%" + query + "%");
+            ps.setString(6, "%" + query + "%");
+            ps.setString(7, "%" + query + "%");
+            ps.setString(8, "%" + query + "%");
+            ps.setString(9, "%" + query + "%");
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     Student student = new Student();
@@ -382,9 +325,11 @@ public class UserService {
                     student.setManufacturer(rs.getString("manufacturer"));
                     student.setMotor_Dmg(rs.getString("motordmg"));
                     student.setPlan(rs.getString("plan"));
-                    student.setValidityPeriod(("vperiod"));
+                    student.setValidityPeriod(rs.getString("vperiod"));
                     student.setMobile_Number(rs.getString("mobilenumber"));
                     student.setEvalue(rs.getInt("evalue"));
+                    student.setBuydate(rs.getString("buydate"));
+                    student.setLastdate(rs.getString("lastdate"));
 
                     search.add(student);
                 }
@@ -398,10 +343,11 @@ public class UserService {
 
 
 
-    public static void main(String[] args) {
-        UserService us = new UserService();
-        us.getPolicyList();
-    }
+
+//    public static void main(String[] args) {
+//        UserService us = new UserService();
+//        us.getPolicyList();
+//    }
 
     //    for showing image in the browser
     public String showimage(Student student) throws SQLException {
@@ -480,13 +426,13 @@ public class UserService {
         return details;
     }
 
-    public List<Student> getPremiumList() {
+    public static List<Student> getPremiumList() {
         System.out.println("getPremiumList");
         List<Student> premiumlist1 = new ArrayList<>();
         String query = "SELECT premium.id, premium.Name, premium.PhoneNumber, premium.Evalue, premium.Premium, details.buydate, details.lastdate " +
                 "FROM premium " +
                 "JOIN details " +
-                "ON premium.id = details.id";
+                "ON premium.uid = details.uid";
 
         System.out.println(query);
         PreparedStatement pstm = new DBConnection().getStatement(query);
@@ -499,7 +445,6 @@ public class UserService {
                 student.setMobile_Number(rs.getString("PhoneNumber"));
                 student.setEvalue(rs.getInt("Evalue"));
                 student.setPremium(rs.getInt("Premium"));
-//                student.setEmail(rs.getString("EMAIL"));
                 student.setBuydate(rs.getString("buydate"));
                 student.setLastdate(rs.getString("lastdate"));
 
@@ -514,14 +459,20 @@ public class UserService {
                 System.out.println(student.getUserName());
                 System.out.println(student.getId());
             }
-//            rs.close();
-//            pstm.close();
-//            System.out.println("policyList.size()"+userList.size());
+
+            // Sort the premium list by buy date
+            Collections.sort(premiumlist1, Comparator.comparing(Student::getBuydate));
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return premiumlist1;
     }
+
+
+
+
+
 
 
 

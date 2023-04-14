@@ -66,6 +66,8 @@
             <div class="user-info-container landpgc">
                 <span id="greet">Welcome To Your DashBoard</span><br>
                 <span>You can manage your account from here.</span>
+                <p>Your email is <%= session.getAttribute("email") %></p>
+                <p>Your user ID is <%= session.getAttribute("uid") %></p>
                 <img src="../CSS/images/cars.png" id="greetbg">
             </div>
         </div>

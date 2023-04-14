@@ -2,6 +2,7 @@
 <%@ page import="Service.UserService" %>
 <%@ page import="Model.Student" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.rmi.server.UID" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +29,7 @@
             <div class="two">
                 <ul>
                     <li>
-                        <form action="user?page=userbsearch" method="post">
+                        <form action="User?page=search" method="post">
                             <input type="search" name="query" id="search" placeholder="Search...">
                             <button type="submit" class="search_button"><i class="fas fa-search"></i></button>
                         </form>
@@ -101,7 +102,8 @@
                             </thead>
                             <tbody id="paginated-list" data-current-page="1" aria-live="polite">
                             <% PrintWriter printt=response.getWriter();
-                            List<Student> policylist = new UserService().getPolicyList();
+                                int userID = (int) request.getSession().getAttribute("uid");
+                            List<Student> policylist = new UserService().getPolicyList(userID);
 
                                 int sn =1;
                                 for (Student student : policylist) {
