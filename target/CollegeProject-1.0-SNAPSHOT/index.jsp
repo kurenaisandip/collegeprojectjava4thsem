@@ -1,48 +1,52 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-s
 <!DOCTYPE html>
 <!-- This site was created in Webflow. https://www.webflow.com --><!-- Last Published: Mon Oct 17 2022 14:45:42 GMT+0000 (Coordinated Universal Time) -->
 <html data-wf-domain="tutum.webflow.io" data-wf-page="6003adccc6d98974850f8e7c" data-wf-site="6003adccc6d98986390f8e7b"
       data-wf-status="1">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <title>Vehicle Insurance System</title>
     <meta
             content="Comprehensive insurance Weblflow template with form builder. Modern stylish design with responsive layouts."
-            name="description" />
-    <meta content="Tutum - Webflow HTML website template" property="og:title" />
+            name="description"/>
+    <meta content="Tutum - Webflow HTML website template" property="og:title"/>
     <meta
             content="Comprehensive insurance Weblflow template with form builder. Modern stylish design with responsive layouts."
-            property="og:description" />
+            property="og:description"/>
     <meta
             content="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d2eac29e9ede5796f0dcce_Home%20opengraph.jpg"
-            property="og:image" />
-    <meta content="Tutum - Webflow HTML website template" property="twitter:title" />
+            property="og:image"/>
+    <meta content="Tutum - Webflow HTML website template" property="twitter:title"/>
     <meta
             content="Comprehensive insurance Weblflow template with form builder. Modern stylish design with responsive layouts."
-            property="twitter:description" />
+            property="twitter:description"/>
     <meta
             content="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d2eac29e9ede5796f0dcce_Home%20opengraph.jpg"
-            property="twitter:image" />
-    <meta property="og:type" content="website" />
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta content="Webflow" name="generator" />
+            property="twitter:image"/>
+    <meta property="og:type" content="website"/>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta content="Webflow" name="generator"/>
     <link href="https://assets.website-files.com/6003adccc6d98986390f8e7b/css/tutum.webflow.b86b87cf7.css"
-          rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+          rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/>
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
     <script
-            type="text/javascript">WebFont.load({ google: { families: ["Inter:100,200,300,regular,500,600,700,800,900:latin,latin-ext"] } });</script>
-    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
+            type="text/javascript">WebFont.load({google: {families: ["Inter:100,200,300,regular,500,600,700,800,900:latin,latin-ext"]}});</script>
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+            type="text/javascript"></script><![endif]-->
     <script
-            type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+            type="text/javascript">!function (o, c) {
+        var n = c.documentElement, t = " w-mod-";
+        n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+    }(window, document);</script>
     <link href="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d2fca109833b73712adc58_fav%20(3).png"
-          rel="shortcut icon" type="image/x-icon" />
+          rel="shortcut icon" type="image/x-icon"/>
     <link href="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d2fca46c8cd65ca9706cfa_webclip%20(3).png"
-          rel="apple-touch-icon" />
+          rel="apple-touch-icon"/>
 </head>
 
 <body>
@@ -53,7 +57,7 @@ s
         <div class="container w-container">
             <div class="nav-wrapper"><a href="/" aria-current="page" class="brand w-nav-brand w--current"><img
                     src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60475badf21682676f04fc7b_logo.svg"
-                    loading="lazy" alt="Tutum logo in color" /></a>
+                    loading="lazy" alt="Tutum logo in color"/></a>
                 <nav role="navigation" class="nav-menu w-nav-menu"><a href="/" aria-current="page"
                                                                       class="nav-link w-nav-link w--current">Home</a>
                     <div data-hover="false" data-delay="0" data-w-id="c9165616-9eab-a65b-931e-d85daaec94b7"
@@ -68,7 +72,7 @@ s
                         <nav class="nav-dropdown-list w-dropdown-list"><a href="/insurance-plans/health-insurance"
                                                                           class="dropdown-link-wrapper w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1934aaf9d813fdd584022_health-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>
                                 <div class="dropdown-main-text">Health insurance</div>
                                 <div class="dropdown-subtext">Life is precious. Get premium health cover.</div>
@@ -76,7 +80,7 @@ s
                         </a><a href="/insurance-plans/car-insurance"
                                class="dropdown-link-wrapper w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193497d2b435e18d5bec8_car-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>
                                 <div class="dropdown-main-text">Car cover</div>
                                 <div class="dropdown-subtext">Type 3+ to first class motor insurance.</div>
@@ -84,14 +88,14 @@ s
                         </a><a href="/insurance-plans/home-insurance"
                                class="dropdown-link-wrapper w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d19349623a2c94246a89d0_home-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>
                                 <div class="dropdown-main-text">Home insurance</div>
                                 <div class="dropdown-subtext">Secure your valuables with home insurance.</div>
                             </div>
                         </a><a href="/insurance-plans/travel" class="dropdown-link-wrapper w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193491e5a4a7ae3fdb4c5_travel-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>
                                 <div class="dropdown-main-text">Travel plans</div>
                                 <div class="dropdown-subtext">Don&#x27;t get caught short on your holiday.</div>
@@ -110,20 +114,22 @@ s
                         <nav class="nav-dropdown-list w-dropdown-list"><a href="/quotes/health-insurance-quote"
                                                                           class="dropdown-link-wrapper v2 w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1934aaf9d813fdd584022_health-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>Health quote</div>
                         </a><a href="/quotes/car-quote" class="dropdown-link-wrapper v2 w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193497d2b435e18d5bec8_car-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>Car quote</div>
                         </a><a href="/quotes/form-builder" class="dropdown-link-wrapper v2 w-inline-block"><img
                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193491e5a4a7ae3fdb4c5_travel-icon.svg"
-                                loading="lazy" alt="" class="icon in-dropdown" />
+                                loading="lazy" alt="" class="icon in-dropdown"/>
                             <div>Form builder</div>
                         </a></nav>
-                    </div><a href="" class="nav-link w-nav-link">Claims</a><a href=""
-                                                                              class="nav-link w-nav-link">About us</a><a href="admin?action=adminlogin"
-                                                                                                                         class="nav-link w-nav-link">Admin</a>
+                    </div>
+                    <a href="" class="nav-link w-nav-link">Claims</a><a href=""
+                                                                        class="nav-link w-nav-link">About us</a><a
+                            href="admin?action=adminlogin"
+                            class="nav-link w-nav-link">Admin</a>
                     <%--                    <div data-hover="false" data-delay="0" data-w-id="182d6ffe-7086-ab96-3883-98881cfe083b"--%>
                     <%--                         class="nav-dropdown w-dropdown">--%>
 
@@ -134,10 +140,11 @@ s
                     <%--                        </a>--%>
                     <%--                    </div>--%>
                     <%--                </nav>--%>
+                    <a href="User?page=userlogin" class="nav-button w-inline-block">
+                        <div>login/Signin</div>
+                    </a>
+            </div>
 
-            </div><a href="User?page=userlogin" class="nav-button w-inline-block">
-            <div>login/Signin</div>
-        </a>
             </nav>
 
             <div class="menu-burger w-nav-button">
@@ -175,7 +182,7 @@ s
                         loading="lazy"
                         srcset="https://assets.website-files.com/6003adccc6d98986390f8e7b/602663eeb6ca566b3b42b806_pexels-ketut-subiyanto-4473398-p-500.jpeg 500w, https://assets.website-files.com/6003adccc6d98986390f8e7b/602663eeb6ca566b3b42b806_pexels-ketut-subiyanto-4473398-p-1080.jpeg 1080w, https://assets.website-files.com/6003adccc6d98986390f8e7b/602663eeb6ca566b3b42b806_pexels-ketut-subiyanto-4473398.jpg 1400w"
                         sizes="(max-width: 479px) 100vw, (max-width: 767px) 87vw, (max-width: 991px) 90vw, 43vw"
-                        alt="Image of woman holding sign" class="image" />
+                        alt="Image of woman holding sign" class="image"/>
                     <div data-w-id="d0d940af-2fc5-4bf4-bf98-0befff67b975" class="texture-a"></div>
                     <div data-w-id="38adb62a-53d3-46d2-fc5f-96480fc358d0" class="texture-b"></div>
                 </div>
@@ -186,25 +193,25 @@ s
                 <div class="content tiny"><a href="/insurance-plans/health-insurance"
                                              class="card product-small w-inline-block"><img
                         src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1934aaf9d813fdd584022_health-icon.svg"
-                        loading="lazy" alt="Health Icon" class="icon" />
+                        loading="lazy" alt="Health Icon" class="icon"/>
                     <h2 class="size-5">Health</h2>
                 </a></div>
                 <div class="content tiny"><a href="/insurance-plans/car-insurance"
                                              class="card product-small w-inline-block"><img
                         src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193497d2b435e18d5bec8_car-icon.svg"
-                        loading="lazy" alt="Car Icon" class="icon" />
+                        loading="lazy" alt="Car Icon" class="icon"/>
                     <h2 class="size-5">Car</h2>
                 </a></div>
                 <div class="content tiny"><a href="/insurance-plans/home-insurance"
                                              class="card product-small w-inline-block"><img
                         src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d19349623a2c94246a89d0_home-icon.svg"
-                        loading="lazy" alt="Home Icon" class="icon" />
+                        loading="lazy" alt="Home Icon" class="icon"/>
                     <h2 class="size-5">Home</h2>
                 </a></div>
                 <div class="content tiny"><a href="/insurance-plans/pet-insurance"
                                              class="card product-small w-inline-block"><img
                         src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1934a8d26342b109f8578_pet-icon.svg"
-                        loading="lazy" alt="Pet Icon" class="icon" />
+                        loading="lazy" alt="Pet Icon" class="icon"/>
                     <h2 class="size-5">Pet</h2>
                 </a></div>
             </div>
@@ -219,11 +226,11 @@ s
                 <div class="align-center">
                     <div class="w-layout-grid awards-strip-grid"><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/602f78d55fedd1b63497217b_hyper-best.svg"
-                            loading="lazy" alt="Best Award Emblem" /><img
+                            loading="lazy" alt="Best Award Emblem"/><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/602f78d54b4bc5074b8811e2_ultra-prestigious.svg"
-                            loading="lazy" alt="Prestugious Award Emblem" /><img
+                            loading="lazy" alt="Prestugious Award Emblem"/><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/602f78d55fedd1b63497217b_hyper-best.svg"
-                            loading="lazy" alt="Another award emblem" /></div>
+                            loading="lazy" alt="Another award emblem"/></div>
                 </div>
             </div>
         </div>
@@ -234,7 +241,7 @@ s
         <div class="section-header center">
             <div class="content medium">
                 <div class="pretitle">feel secure</div>
-                <h2 class="title">Products that<br />protect and <span class="accent-text">reward</span></h2>
+                <h2 class="title">Products that<br/>protect and <span class="accent-text">reward</span></h2>
                 <p>When it came near enough he perceived that it was not grass, there were no blades, but only
                     purple roots.</p>
             </div>
@@ -245,34 +252,37 @@ s
                                              class="card product-large w-inline-block">
                     <div><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d19349c7a0e91495734f2e_life-icon.svg"
-                            loading="lazy" alt="Life insurance icon" class="icon" />
+                            loading="lazy" alt="Life insurance icon" class="icon"/>
                         <h3 class="size-6">Life cover</h3>
                         <div class="card-summary">Get insurance that counts.</div>
-                    </div><img
-                        src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
-                        loading="lazy" alt="" class="product-arrow" />
+                    </div>
+                    <img
+                            src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
+                            loading="lazy" alt="" class="product-arrow"/>
                 </a></div>
                 <div class="card-trigger"><a href="/insurance-plans/health-insurance"
                                              class="card product-large w-inline-block">
                     <div><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/602660cda629a753616d014d_health-icon.svg"
-                            loading="lazy" alt="Health insurance icon" class="icon" />
+                            loading="lazy" alt="Health insurance icon" class="icon"/>
                         <h3 class="size-6">Health</h3>
                         <div class="card-summary">Get insurance that counts.</div>
-                    </div><img
-                        src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
-                        loading="lazy" alt="" class="product-arrow" />
+                    </div>
+                    <img
+                            src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
+                            loading="lazy" alt="" class="product-arrow"/>
                 </a></div>
                 <div class="card-trigger"><a href="/insurance-plans/car-insurance"
                                              class="card product-large w-inline-block">
                     <div><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193497d2b435e18d5bec8_car-icon.svg"
-                            loading="lazy" alt="Car insurance icon" class="icon" />
+                            loading="lazy" alt="Car insurance icon" class="icon"/>
                         <h3 class="size-6">Car cover</h3>
                         <div class="card-summary">Get insurance that counts.</div>
-                    </div><img
-                        src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
-                        loading="lazy" alt="" class="product-arrow" />
+                    </div>
+                    <img
+                            src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
+                            loading="lazy" alt="" class="product-arrow"/>
                 </a></div>
             </div>
             <div class="card-group">
@@ -280,34 +290,37 @@ s
                                              class="card product-large w-inline-block">
                     <div><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d193491e5a4a7ae3fdb4c5_travel-icon.svg"
-                            loading="lazy" alt="Travel insurance icon" class="icon" />
+                            loading="lazy" alt="Travel insurance icon" class="icon"/>
                         <h3 class="size-6">Travel cover</h3>
                         <div class="card-summary">Get insurance that counts.</div>
-                    </div><img
-                        src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
-                        loading="lazy" alt="" class="product-arrow" />
+                    </div>
+                    <img
+                            src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
+                            loading="lazy" alt="" class="product-arrow"/>
                 </a></div>
                 <div class="card-trigger"><a href="/insurance-plans/pet-insurance"
                                              class="card product-large w-inline-block">
                     <div><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1934a8d26342b109f8578_pet-icon.svg"
-                            loading="lazy" alt="Pet insurance icon" class="icon" />
+                            loading="lazy" alt="Pet insurance icon" class="icon"/>
                         <h3 class="size-6">Pet plans</h3>
                         <div class="card-summary">Get insurance that counts.</div>
-                    </div><img
-                        src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
-                        loading="lazy" alt="" class="product-arrow" />
+                    </div>
+                    <img
+                            src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
+                            loading="lazy" alt="" class="product-arrow"/>
                 </a></div>
                 <div class="card-trigger"><a href="/insurance-plans/home-insurance"
                                              class="card product-large w-inline-block">
                     <div><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d19349623a2c94246a89d0_home-icon.svg"
-                            loading="lazy" alt="Home insurance icon" class="icon" />
+                            loading="lazy" alt="Home insurance icon" class="icon"/>
                         <h3 class="size-6">Home plans</h3>
                         <div class="card-summary">Get insurance that counts.</div>
-                    </div><img
-                        src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
-                        loading="lazy" alt="" class="product-arrow" />
+                    </div>
+                    <img
+                            src="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d1949d968915eae2ac7c2d_card-arrow.svg"
+                            loading="lazy" alt="" class="product-arrow"/>
                 </a></div>
             </div>
         </div>
@@ -327,7 +340,7 @@ s
                         loading="lazy"
                         srcset="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d2998717eb333783c51eb9_pexels-fauxels-3184429-p-500.jpeg 500w, https://assets.website-files.com/6003adccc6d98986390f8e7b/60d2998717eb333783c51eb9_pexels-fauxels-3184429.jpg 800w"
                         sizes="(max-width: 479px) 100vw, (max-width: 767px) 87vw, (max-width: 991px) 44vw, 43vw"
-                        alt="Man shaking hand in team meeting" class="image" /></div>
+                        alt="Man shaking hand in team meeting" class="image"/></div>
                 <div class="content">
                     <div class="align-center">
                         <div class="card empty">
@@ -366,7 +379,7 @@ s
                             loading="lazy"
                             srcset="https://assets.website-files.com/6003adccc6d98986390f8e7b/60d299879d54b46ef21a1295_pexels-fauxels-3184428-p-500.jpeg 500w, https://assets.website-files.com/6003adccc6d98986390f8e7b/60d299879d54b46ef21a1295_pexels-fauxels-3184428.jpg 800w"
                             sizes="(max-width: 479px) 100vw, (max-width: 767px) 87vw, (max-width: 991px) 44vw, 43vw"
-                            alt="Team celebrating by joining hands" class="image" /></div>
+                            alt="Team celebrating by joining hands" class="image"/></div>
                 </div>
             </div>
         </div>
@@ -388,9 +401,8 @@ s
                         <div class="small">
                             <h2>What people <span class="accent-text">say</span> about <span
                                     class="accent-text">Tutum</span> insurance</h2>
-                            <p>A versatile template robust enough to work for any insurance company. All the
-                                components are styled and created for insurance companies to integrate with
-                                advanced platforms. </p>
+                            <p>Tutum vehicle insurance service receives positive feedback for its affordable rates,
+                                comprehensive coverage, and hassle-free claims process. </p>
                             <div class="button-wrapper"><a href="/about-us" class="button border w-button">about
                                 us</a></div>
                         </div>
@@ -405,55 +417,45 @@ s
                                     <div class="testimonial-slide w-slide">
                                         <div class="card"><img
                                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/607636c52c2a0f810f7aa212_placeholder-2.svg"
-                                                loading="lazy" alt="" class="testimonial-image" />
+                                                loading="lazy" alt="" class="testimonial-image"/>
                                             <h4>Jason Day</h4>
                                             <div class="testimonial-occupation">Pga professional</div>
-                                            <p class="small-body">Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit. Suspendisse varius enim in eros elementum
-                                                tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                                interdum nulla, ut commodo diam libero vitae erat. </p>
+                                            <p class="small-body">I switched to Tutum for my car insurance, and I
+                                                couldn't be happier. They provided me with a great rate and excellent
+                                                customer service. </p>
                                         </div>
                                     </div>
                                     <div class="testimonial-slide w-slide">
                                         <div class="card"><img
                                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/607636c5e6340947a7a6085b_placeholder-3.svg"
-                                                loading="lazy" alt="" class="testimonial-image" />
+                                                loading="lazy" alt="" class="testimonial-image"/>
                                             <h4>Tiger Woods</h4>
                                             <div class="testimonial-occupation">Pga professional</div>
-                                            <p class="small-body">Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit. Suspendisse varius enim in eros elementum
-                                                tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                                interdum nulla, ut commodo diam libero vitae erat. Aenean
-                                                faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut
-                                                sem vitae risus tristique posuere.</p>
+                                            <p class="small-body">I had to file a claim with Tutum after an accident,
+                                                and I was amazed at how easy and straightforward the process was. They
+                                                took care of everything, and I was back on the road in no time.</p>
                                         </div>
                                     </div>
                                     <div class="testimonial-slide w-slide">
                                         <div class="card"><img
                                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/607636c52c2a0f810f7aa212_placeholder-2.svg"
-                                                loading="lazy" alt="" class="testimonial-image" />
+                                                loading="lazy" alt="" class="testimonial-image"/>
                                             <h4>Mike Tyson</h4>
                                             <div class="testimonial-occupation">Pga professional</div>
-                                            <p class="small-body">Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit. Suspendisse varius enim in eros elementum
-                                                tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                                interdum nulla, ut commodo diam libero vitae erat. Aenean
-                                                faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut
-                                                sem vitae risus tristique posuere.</p>
+                                            <p class="small-body">I've been with Tutum for a few years now, and I have
+                                                nothing but positive things to say about their service. They always go
+                                                above and beyond to make sure I'm happy with my coverage.</p>
                                         </div>
                                     </div>
                                     <div class="testimonial-slide w-slide">
                                         <div class="card"><img
                                                 src="https://assets.website-files.com/6003adccc6d98986390f8e7b/607636c52c2a0fa1af7aa211_placeholder-1.svg"
-                                                loading="lazy" alt="" class="testimonial-image" />
+                                                loading="lazy" alt="" class="testimonial-image"/>
                                             <h4>Bill Gates</h4>
                                             <div class="testimonial-occupation">Computer genius</div>
-                                            <p class="small-body">Lorem ipsum dolor sit amet, consectetur
-                                                adipiscing elit. Suspendisse varius enim in eros elementum
-                                                tristique. Duis cursus, mi quis viverra ornare, eros dolor
-                                                interdum nulla, ut commodo diam libero vitae erat. Aenean
-                                                faucibus nibh et justo cursus id rutrum lorem imperdiet. Nunc ut
-                                                sem vitae risus tristique posuere.</p>
+                                            <p class="small-body">I highly recommend Tutum to anyone looking for
+                                                affordable and reliable car insurance. Their website is easy to use, and
+                                                their customer service is excellent.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -477,10 +479,11 @@ s
         <div class="content-row center">
             <div class="content super-large">
                 <div class="card cta">
-                    <h2 class="title cta">Need to make a claim?<br />We’ve made the process easy.</h2>
+                    <h2 class="title cta">Need to make a claim?<br/>We’ve made the process easy.</h2>
                     <div class="button-wrapper centered"><a href="/claims" class="button w-button">Make
                         claim</a>
-                        <div class="button-divider"></div><a href="/contact-us" class="button border w-button">call
+                        <div class="button-divider"></div>
+                        <a href="/contact-us" class="button border w-button">call
                             back</a>
                     </div>
                 </div>
@@ -514,12 +517,13 @@ s
                                 alt=""
                                 sizes="(max-width: 479px) 100vw, (max-width: 767px) 84vw, (max-width: 991px) 29vw, 28vw"
                                 srcset="https://assets.website-files.com/602fa7803da553f06a36c805/602fa788eee201cf4814f5c5_1613735811675-image2-p-500.jpeg 500w, https://assets.website-files.com/602fa7803da553f06a36c805/602fa788eee201cf4814f5c5_1613735811675-image2.jpg 1300w"
-                                class="blog-thumbnail" /></a>
+                                class="blog-thumbnail"/></a>
                             <div>
-                                <div class="pretitle">Quo tempore voluptatem quia n</div><a href="#"
-                                                                                            class="blog-card-link w-inline-block">
-                                <h3 class="size-5">10 Things Nobody Told You About Being a Web Designer</h3>
-                            </a>
+                                <div class="pretitle">Quo tempore voluptatem quia n</div>
+                                <a href="#"
+                                   class="blog-card-link w-inline-block">
+                                    <h3 class="size-5">10 Things Nobody Told You About Being a Web Designer</h3>
+                                </a>
                             </div>
                         </div>
                         <div role="listitem" class="blog-item w-dyn-item w-col w-col-4"><a
@@ -529,12 +533,13 @@ s
                                 src="https://assets.website-files.com/602fa7803da553f06a36c805/60d88df28d08594cc74dc5b5_1624804849727-image19.jpg"
                                 loading="lazy"
                                 style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                                alt="" class="blog-thumbnail" /></a>
+                                alt="" class="blog-thumbnail"/></a>
                             <div>
-                                <div class="pretitle">Rerum modi animi itaque quo e</div><a href="#"
-                                                                                            class="blog-card-link w-inline-block">
-                                <h3 class="size-5">What Will Website Be Like In 100 Years?</h3>
-                            </a>
+                                <div class="pretitle">Rerum modi animi itaque quo e</div>
+                                <a href="#"
+                                   class="blog-card-link w-inline-block">
+                                    <h3 class="size-5">What Will Website Be Like In 100 Years?</h3>
+                                </a>
                             </div>
                         </div>
                         <div role="listitem" class="blog-item w-dyn-item w-col w-col-4"><a
@@ -547,13 +552,14 @@ s
                                 alt=""
                                 sizes="(max-width: 479px) 100vw, (max-width: 767px) 84vw, (max-width: 991px) 29vw, 28vw"
                                 srcset="https://assets.website-files.com/602fa7803da553f06a36c805/602fa7848739556a92a97b75_1613735811799-image4-p-1080.jpeg 1080w, https://assets.website-files.com/602fa7803da553f06a36c805/602fa7848739556a92a97b75_1613735811799-image4.jpg 1300w"
-                                class="blog-thumbnail" /></a>
+                                class="blog-thumbnail"/></a>
                             <div>
-                                <div class="pretitle">Sapiente sit facilis</div><a href="#"
-                                                                                   class="blog-card-link w-inline-block">
-                                <h3 class="size-5">The Worst Advice We&#x27;ve Ever Heard About Web Design
-                                </h3>
-                            </a>
+                                <div class="pretitle">Sapiente sit facilis</div>
+                                <a href="#"
+                                   class="blog-card-link w-inline-block">
+                                    <h3 class="size-5">The Worst Advice We&#x27;ve Ever Heard About Web Design
+                                    </h3>
+                                </a>
                             </div>
                         </div>
                         <div role="listitem" class="blog-item w-dyn-item w-col w-col-4"><a
@@ -563,12 +569,13 @@ s
                                 src="https://assets.website-files.com/602fa7803da553f06a36c805/60d88e73f23901172ea74361_1624804978719-image5.jpg"
                                 loading="lazy"
                                 style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)"
-                                alt="" class="blog-thumbnail" /></a>
+                                alt="" class="blog-thumbnail"/></a>
                             <div>
-                                <div class="pretitle">Velit hic repellendus numqu</div><a href="#"
-                                                                                          class="blog-card-link w-inline-block">
-                                <h3 class="size-5">5 Principles Of Effective Web Design</h3>
-                            </a>
+                                <div class="pretitle">Velit hic repellendus numqu</div>
+                                <a href="#"
+                                   class="blog-card-link w-inline-block">
+                                    <h3 class="size-5">5 Principles Of Effective Web Design</h3>
+                                </a>
                             </div>
                         </div>
                         <div role="listitem" class="blog-item w-dyn-item w-col w-col-4"><a
@@ -581,12 +588,13 @@ s
                                 alt=""
                                 sizes="(max-width: 479px) 100vw, (max-width: 767px) 84vw, (max-width: 991px) 29vw, 28vw"
                                 srcset="https://assets.website-files.com/602fa7803da553f06a36c805/60dd7cd4c762ce33314b1db9_1625128147534-image16-p-500.jpeg 500w, https://assets.website-files.com/602fa7803da553f06a36c805/60dd7cd4c762ce33314b1db9_1625128147534-image16.jpg 1300w"
-                                class="blog-thumbnail" /></a>
+                                class="blog-thumbnail"/></a>
                             <div>
-                                <div class="pretitle">Expedita esse debitis exercit</div><a href="#"
-                                                                                            class="blog-card-link w-inline-block">
-                                <h3 class="size-5">7 Things About Web Design Your Boss Wants To Know</h3>
-                            </a>
+                                <div class="pretitle">Expedita esse debitis exercit</div>
+                                <a href="#"
+                                   class="blog-card-link w-inline-block">
+                                    <h3 class="size-5">7 Things About Web Design Your Boss Wants To Know</h3>
+                                </a>
                             </div>
                         </div>
                         <div role="listitem" class="blog-item w-dyn-item w-col w-col-4"><a
@@ -599,12 +607,13 @@ s
                                 alt=""
                                 sizes="(max-width: 479px) 100vw, (max-width: 767px) 84vw, (max-width: 991px) 29vw, 28vw"
                                 srcset="https://assets.website-files.com/602fa7803da553f06a36c805/602fa7844b4bc53be888fa65_1613735811798-image14-p-500.jpeg 500w, https://assets.website-files.com/602fa7803da553f06a36c805/602fa7844b4bc53be888fa65_1613735811798-image14-p-1080.jpeg 1080w, https://assets.website-files.com/602fa7803da553f06a36c805/602fa7844b4bc53be888fa65_1613735811798-image14.jpg 1300w"
-                                class="blog-thumbnail" /></a>
+                                class="blog-thumbnail"/></a>
                             <div>
-                                <div class="pretitle">Tenetur quaerat non. </div><a href="#"
-                                                                                    class="blog-card-link w-inline-block">
-                                <h3 class="size-5">10 Great Examples of Responsive Websites</h3>
-                            </a>
+                                <div class="pretitle">Tenetur quaerat non.</div>
+                                <a href="#"
+                                   class="blog-card-link w-inline-block">
+                                    <h3 class="size-5">10 Great Examples of Responsive Websites</h3>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -699,12 +708,14 @@ s
                         <div class="tiny">
                             <h6>Contact Us</h6>
                             <div class="top-margin-10">
-                                <div class="label v2">Call us now</div><a href="tel:0825551234"
-                                                                          class="dark-link">082 555 1234</a>
+                                <div class="label v2">Call us now</div>
+                                <a href="tel:0825551234"
+                                   class="dark-link">082 555 1234</a>
                             </div>
                             <div class="top-margin-10">
-                                <div class="label v2">Email us now</div><a href="mailto:clientcar@tutum.io"
-                                                                           class="dark-link">client@tutum.io</a>
+                                <div class="label v2">Email us now</div>
+                                <a href="mailto:clientcar@tutum.io"
+                                   class="dark-link">client@tutum.io</a>
                             </div>
                         </div>
                         <div data-enable-scroll="true" data-enable-touch="true" data-widget-latlng=""
@@ -723,19 +734,19 @@ s
             <div class="content">
                 <div class="super-small"><a href="/" aria-current="page" class="footer-logo-link w--current"><img
                         src="https://assets.website-files.com/6003adccc6d98986390f8e7b/605e885a07f536fe0ac5bfc7_logo-dark.svg"
-                        alt="Tutum logo in black" class="footer-image" /></a>
+                        alt="Tutum logo in black" class="footer-image"/></a>
                     <p class="small-body">We are an award winning insurance provider. Established in 1950 we
                         have years of experience. Get started with your insurance today.</p>
                     <div class="social-links-wrapper"><a href="http://www.facebook.com" target="_blank"
                                                          class="social-link w-inline-block"><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/605e8da034d3b81089b81d80_001-facebook.svg"
-                            loading="lazy" alt="Facebook Icon" class="social-icon" /></a><a
+                            loading="lazy" alt="Facebook Icon" class="social-icon"/></a><a
                             href="http://www.twitter.com" class="social-link w-inline-block"><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/605e8da0393ed2fb2336a2e0_002-twitter.svg"
-                            loading="lazy" alt="Twitter Icon" class="social-icon" /></a><a
+                            loading="lazy" alt="Twitter Icon" class="social-icon"/></a><a
                             href="http://www.instagram.com" class="social-link w-inline-block"><img
                             src="https://assets.website-files.com/6003adccc6d98986390f8e7b/605e8da06e7446d321c85252_005-instagram.svg"
-                            loading="lazy" alt="Instagram Icon" class="social-icon" /></a></div>
+                            loading="lazy" alt="Instagram Icon" class="social-icon"/></a></div>
                 </div>
             </div>
             <div class="footer-nav-wrapper">
@@ -845,12 +856,14 @@ s
         <div class="container w-container">
             <div class="copyrights-wrapper">
                 <div class="copyrights-text">Copyright Tutum 2021 powered by <a href="http://www.webflow.com"
-                                                                                target="_blank" class="white-link">Webflow</a></div>
+                                                                                target="_blank" class="white-link">Webflow</a>
+                </div>
                 <div class="copyrights-text">Support by <a href="https://uplostudio.com/" class="white-link">Maciej
                     Kociela</a><a href="http://www.webflow.com" target="_blank" class="white-link"></a></div>
                 <div><a href="/privacy-policy" class="footer-bottom-link">Privacy policy</a><a href="/styleguide"
-                                                                                               class="footer-bottom-link">Style guide</a><a href="/licenses"
-                                                                                                                                            class="footer-bottom-link">Licenses</a></div>
+                                                                                               class="footer-bottom-link">Style
+                    guide</a><a href="/licenses"
+                                class="footer-bottom-link">Licenses</a></div>
             </div>
         </div>
     </div>
@@ -861,7 +874,8 @@ s
         crossorigin="anonymous"></script>
 <script src="https://assets.website-files.com/6003adccc6d98986390f8e7b/js/webflow.ac8a9a8b3.js"
         type="text/javascript"></script>
-<!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+<!--[if lte IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
 </body>
 
 </html>

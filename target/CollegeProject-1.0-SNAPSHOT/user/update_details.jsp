@@ -64,50 +64,66 @@
 
 <body>
 <form method="post" action="User?page=finaledit">
-  <input type="hidden" name="policyId" value="${student.id}">
+  <input type="hidden" name="id" value="${student.id}">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="uname" value="${student.userName}">
+  <br>
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" value="${student.email}">
+  <input type="email" id="email" name="uemail" value="${student.email}">
   <br>
   <label for="dob">Date of Birth:</label>
   <input type="date" id="dob" name="dob" value="${student.DOB}">
   <br>
-  <label for="idtype">ID Type:</label>
-  <input type="text" id="idtype" name="idtype" value="${student.id_Type}">
-  <br>
-  <label for="idnumber">ID Number:</label>
-  <input type="text" id="idnumber" name="idnumber" value="${student.id_number}">
-  <br>
-  <label for="authority">Authority:</label>
-  <input type="text" id="authority" name="authority" value="${student.authority}">
-  <br>
-  <label for="state">State:</label>
-  <input type="text" id="state" name="state" value="${student.state}">
-  <br>
-  <label for="date">Date:</label>
-  <input type="date" id="date" name="date" value="${student.date}">
-  <br>
-  <label for="plateno">Plate No:</label>
-  <input type="text" id="plateno" name="plateno" value="${student.plate_No}">
-  <br>
-  <label for="manufacturer">Manufacturer:</label>
-  <input type="text" id="manufacturer" name="manufacturer" value="${student.manufacturer}">
-  <br>
-  <label for="motordmg">Motor Damage:</label>
-  <input type="text" id="motordmg" name="motordmg" value="${student.motor_Dmg}">
-  <br>
-  <label for="plan">Plan:</label>
-  <input type="text" id="plan" name="plan" value="${student.plan}">
-  <br>
-  <label for="vperiod">Validity Period:</label>
-  <input type="text" id="vperiod" name="vperiod" value="${student.validityPeriod}">
   <br>
   <label for="mobilenumber">Mobile Number:</label>
-  <input type="tel" id="mobilenumber" name="mobilenumber" value="${student.mobile_Number}">
+  <input type="text" id="mobilenumber" name="mobilenumber" value="${student.mobile_Number}">
   <br>
+  <br>
+  <label>Gender</label>
+  <select name="gender"  required>
+    <option>Select gender</option>
+    <option>Male</option>
+    <option>Female</option>
+    <option>Others</option>
+  </select>
+  <br>
+  <label for="occupation">Occupation:</label>
+  <input type="text" id="occupation" name="occupation" value="${student.occupation}">
+  <br>
+  <label for="idtype">ID Type:</label>
+  <input type="text" id="idtype" name="ID" value="${student.id_Type}">
+  <br>
+  <label for="idnumber">ID Number:</label>
+  <input type="text" id="idnumber" name="IDno" value="${student.id_number}">
+  <br>
+  <label for="authority">Authority:</label>
+  <input type="text" id="authority" name="Auth" value="${student.authority}">
+  <br>
+  <label for="state">State:</label>
+  <input type="text" id="state" name="Istate" value="${student.state}">
+  <br>
+  <label for="date">Date:</label>
+  <input type="date" id="date" name="Idate" value="${student.date}">
+  <br>
+  <label for="plateno">Plate No:</label>
+  <input type="text" id="plateno" name="Pno" value="${student.plate_No}">
+  <br>
+  <label for="manufacturer">Manufacturer:</label>
+  <input type="text" id="manufacturer" name="Man" value="${student.manufacturer}">
+  <br>
+  <label for="motordmg">Motor Damage:</label>
+  <input type="text" id="motordmg" name="Mdmg" value="${student.motor_Dmg}">
+  <br>
+  <label for="plan">Plan:</label>
+  <input type="text" id="plan" name="Plan" value="${student.plan}">
+  <br>
+  <label for="vperiod">Validity Period:</label>
+  <input type="text" id="vperiod" name="Vperiod" value="${student.validityPeriod}">
+
   <label for="evalue">E-Value:</label>
-  <input type="text" id="evalue" name="evalue" value="${student.evalue}">
+  <input type="text" id="evalue" name="Evalue" value="${student.evalue}">
   <br>
-  <button type="submit" name="action" value="update">Update</button>
+  <button type="submit">Update</button>
 </form>
 
 </body>

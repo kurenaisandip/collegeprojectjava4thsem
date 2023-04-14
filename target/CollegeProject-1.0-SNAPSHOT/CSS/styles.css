@@ -8,7 +8,8 @@
 }
 
 body {
-    background-color: #2d2d2d;
+    background-color: #f3f3f3;
+    font-family: Arial, sans-serif;
     /* background-color: rgb(24, 24, 24); */
 
 }
@@ -33,18 +34,15 @@ body {
 .headtitles {
     height: 50px;
     width: 100%;
-    background-color: #fff7f2;
-    padding-top: 30px;
-    margin-top: -40px;
-    font-family: 'Poppins', sans-serif;
+    background-color: white;
     font-weight: bold;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     position: fixed;
 
 }
 
-#headtitlesfix {
-    margin-top: -10px;
+.headtitles ul {
+    display: flex;
 }
 
 .headtitles ul li {
@@ -55,12 +53,15 @@ body {
 
 }
 
+.two ul {
+    display: flex;
+    align-items: center;
+}
 .headlink {
-    padding-top: 32px;
+    padding-top: 15px;
     padding-bottom: 24px;
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: -30px;
 }
 
 .search_button {
@@ -68,7 +69,7 @@ body {
     width: 30px;
     border-style: none;
     border-left: 0px;
-    color: #e36a00;
+    color: #1a98c0;
     background-color:transparent;
     cursor: pointer;
 }
@@ -79,17 +80,14 @@ body {
 }
 
 .two {
-
     float: right;
+    margin-top: 9px;
 }
 
-.headtitles ul {
-    display: flex;
-}
+
 
 #logo {
-    height: 50px;
-    margin-top: -20px;
+    height: 40px;
     float: left;
     padding-right: 100px;
     padding-left: 40px;
@@ -97,7 +95,7 @@ body {
 }
 
 #browse:hover {
-    border-bottom: 3px solid #e35200;
+    border-bottom: 3px solid #1a98c0;
 }
 
 #browse:hover .dropdown-content {
@@ -125,7 +123,7 @@ body {
 
 .dropdown-items:hover {
     background-color: #eeeeee;
-    border-right: 3px solid #e37100;
+    border-right: 3px solid #1a98c0;
 }
 
 
@@ -180,12 +178,12 @@ body {
 }
 
 #login {
-    color: #e35200;
+    color: #1a98c0;
     cursor: pointer;
 }
 
 #signup {
-    background-image: linear-gradient(to right top, #e37100, #e36a00, #e36201, #e35a02, #e35205);
+    background-color: #1a98c0;
     color: #fbf6f3;
     cursor: pointer;
 }
@@ -234,7 +232,6 @@ body {
     margin-top: 90px;
     padding: 0% 15%;
     float: left;
-    font-family: 'Poppins', sans-serif;
 }
 
 .welcbox {
@@ -258,7 +255,6 @@ body {
 
 .labels {
     width: 100%;
-    font-family: 'Poppins', sans-serif;
     color: white;
     text-align: center;
     margin-top: 60px;
@@ -279,7 +275,6 @@ body {
     width: 100%;
     /* padding: 0% 15%; */
     float: left;
-    font-family: 'Poppins', sans-serif;
     /* background-color: aquamarine; */
     margin-bottom: 135px;
 }
@@ -295,7 +290,7 @@ body {
 }
 
 .seemore {
-    color: #e35200;
+    color: #1a98c0;
     float: right;
     margin-right: 10%;
 }
@@ -335,7 +330,7 @@ body {
     box-sizing: border-box;
     padding: 5px;
     /* background-color:olivedrab; */
-    color: #e35200
+    color: #1a98c0
 }
 
 
@@ -350,14 +345,13 @@ body {
     flex-direction: column;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    font-family: 'Poppins', sans-serif;
 
 }
 
 .newssub {
     height: 230px;
     width: 100%;
-    background-image: linear-gradient(to right top, #e37100, #e36a00, #e36201, #e35a02, #e35205);
+    background-color: #1a98c0;
     text-align: center;
     color: white;
     padding-top: 50px;
@@ -372,7 +366,6 @@ body {
 .nlfinput {
     height: 30px;
     width: 240px;
-    font-family: 'Poppins', sans-serif;
     padding: 8px;
     color: gray;
     margin: 10px;
@@ -383,7 +376,6 @@ body {
 #nlfsubmit {
     height: 50px;
     width: 150px;
-    font-family: 'Poppins', sans-serif;
     padding: 8px;
     color: rgb(255, 255, 255);
     background-color: #2d2d2d;
@@ -428,7 +420,7 @@ body {
 
 .btboxheading {
     font-weight: bold;
-    color: #e35200;
+    color: #1a98c0;
     margin-bottom: 50px;
 }
 
@@ -438,7 +430,7 @@ body {
 
 #profileprofile{
     text-decoration: none;
-    color: #e35200;
+    color: #1a98c0;
     cursor: pointer;
 }
 
@@ -517,7 +509,6 @@ body {
     background: #e3e3e3;
     transform: translate(205%, 40%);
     border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
     z-index: 5;
 }
 
@@ -534,7 +525,6 @@ body {
     background: #e3e3e3;
     transform: translate(205%, 100%);
     border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
     z-index: 5;
 }
 
@@ -551,7 +541,6 @@ body {
     background: #e3e3e3;
     transform: translate(205%, 50%);
     border-radius: 8px;
-    font-family: 'Poppins', sans-serif;
     z-index: 5;
 }
 
@@ -559,7 +548,6 @@ body {
 .inputBox1 {
     position: relative;
     width: 250px;
-    font-family: 'Poppins', sans-serif;
     margin-bottom: 30px;
 
 }
@@ -639,11 +627,10 @@ body {
     font-size: 10px;
     letter-spacing: 2px;
     margin-bottom: 3em;
-    font-family: 'Poppins', sans-serif;
 }
 
 .enter:hover {
-    background-color: #e36a00;
+    background-color: #1a98c0;
     color: white;
 }
 
@@ -651,7 +638,6 @@ body {
 
 
 .parent {
-    font-family: 'Poppins', sans-serif;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -661,18 +647,18 @@ body {
 }
 
 .admin-nav {
-    width: 20%;
-    background-color: rgb(34, 34, 34);
+    width: 18%;
+    background-color: #f3f3f3;
     flex-direction: column;
     position: fixed;
-    color: #dfe0df;
+    color: rgb(34, 34, 34);
     padding: 15px;
     padding-top: 50px;
     box-sizing: border-box;
     box-shadow: rgba(10, 10, 10, 0.2) 0px 2px 8px 0px;
     margin-top: 50px;
     border-radius: 15px;
-    margin-left: 15px;
+    margin-left: 5px;
 }
 
 .landpgc {
@@ -692,7 +678,7 @@ body {
 }
 
 #adminid {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 500;
     padding: 20px;
     margin-top: 30px;
@@ -701,7 +687,7 @@ body {
 
 #navlist {
     margin-top: 30px;
-    font-size: 18px;
+    font-size: 14px;
 
 }
 
@@ -715,13 +701,17 @@ body {
 
 }
 
+.listhead{
+    color: white;
+}
+
 .listitem {
     width: 100%;
     list-style-type: none;
 }
 
 .listitem {
-    color: #dfe0df;
+    color: rgb(34, 34, 34);
 }
 
 #navlist a {
@@ -732,18 +722,17 @@ body {
 .listitem:hover {
 
     cursor: pointer;
-    background-color: #5f5f5f;
-    border-right: 4px solid #e35200;
+    border-right: 4px solid #1a98c0;
 
 }
 
 .sublistitem {
-    width: 207px;
+    width: 135px;
 }
 
 .collapsible {
     height: 28px;
-    width: 260px;
+    width: 183px;
     margin-left: -10px;
     padding: 10px;
 
@@ -752,11 +741,10 @@ body {
 .active,
 .collapsible:hover {
     cursor: pointer;
-    background-color: #5f5f5f;
 }
 
 .collapsible:active {
-    border-right: 4px solid #e35200;
+    border-right: 4px solid #1a98c0;
 }
 
 .collapseitem {
@@ -773,7 +761,7 @@ body {
 #ml:hover {
     cursor: pointer;
     background-color: #5f5f5f;
-    border-right: 4px solid #e35200;
+    border-right: 4px solid #1a98c0;
 }
 
 .page {
@@ -788,43 +776,35 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: burlywood; */
-    font-family: 'Poppins', sans-serif;
     margin-bottom: 50px;
     width: 100%;;
 }
 
-.book-info-form,
 .user-info-container,
 .search-result-container{
-    background-color: rgb(34, 34, 34);
-    width: 1000px;
+    background-color: #f3f3f3;
+    width: 1020px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
+    font-size: 14px;
     border-radius: 15px;
-    color: #dfe0df;
+    color: rgb(34, 34, 34);
     padding: 30px;
+    padding-bottom: 0px;
     box-sizing: border-box;
     box-shadow: rgba(10, 10, 10, 0.2) 0px 2px 8px 0px;
+    margin-left: -20px;
 
 }
 
 .user-info-container-sub {
-    width: 510px;
     margin: 10px 0px;
     justify-content: left;
     flex-direction: column;
 }
 
-/* .book-info-form form label,
-.book-info-form form input,
-#synopsis,
-#genre {
-    margin: 0px, 20px;
-    box-sizing: border-box;
-} */
 
 .inputsection {
     margin-bottom: 20px;
@@ -838,25 +818,27 @@ body {
 }
 
 .input-box,
-#synopsis {
+#textarea {
     width: 100%;
     height: 35px;
-    font-size: 16px;
+    font-size: 12px;
     /* border-color: #ea8623; */
     border-radius: 3px;
     border-width: 1.3px;
     border-style: solid;
     padding-left: 10px;
-    background-color: #dfdfdf;
+    background-color: white;
 }
 
-#synopsis {
+#textarea {
     height: 200px;
     resize: none;
+    padding-top: 10px;
+    font-family: Arial, sans-serif;
 }
 
 #publication_year {
-    width: 22%;
+    width: 45%;
     display: flex;
     justify-content: space-around;
     background-color: #dfdfdf;
@@ -867,14 +849,21 @@ body {
     margin-left: 25px;
     display: flex;
     justify-content: space-around;
-    background-color: #dfdfdf;
+    background-color: white;
     box-sizing: border-box;
+    border:none;
 }
 
 .compact {
-    width: 25%;
+    width: 48%;
     display: flex;
     /* float: left; */
+}
+
+.compactd{
+    width: 48%;
+    display: flex;
+    font-size: 18px;
 }
 
 
@@ -901,18 +890,21 @@ input[type="file"] {
     /* hide the default button */
 }
 
-label[for="cover_image"]::after {
-    content: 'Choose cover image';
+label[for="myFile"]::after {
+    content: 'Upload File';
     display: inline-block;
     padding: 0.5em 1em;
-    background-color: #e36a00;
-    border: none;
+    border: #1a98c0 1px solid;
+    background-color: white;
     border-radius: 3px;
     font-size: 16px;
-    font-family: 'Poppins', sans-serif;
     cursor: pointer;
+    color: #1a98c0;
 }
-
+ .fileup{
+     display: flex;
+     flex-direction: column;
+ }
 input[type=number] {
     -moz-appearance: textfield;
 }
@@ -922,26 +914,98 @@ input[type=number] {
     max-width: 100px;
 }
 
+.bottombutton{
+    float: right;
+    margin: 20px;
+}
+
+.bottombutton button{
+    margin-left: 10px;
+}
+
 
 #add {
     border-style: none;
     border-radius: 5px;
     color: white;
-    background-color: #000;
-    width: 120px;
-    height: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 20px;
-
+    background-color: #1a98c0;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
 }
 
+#add:hover{
+    background-color: #0e81a5;
+}
+
+#rqphone {
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #f5a623;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
+}
+
+#rqphone:hover{
+    background-color: #da9420;
+}
+
+#accept {
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #85b362;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
+}
+
+#accept:hover{
+    background-color: #6c9050;
+}
+
+#reject {
+    border-style: none;
+    border-style: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #c36e6e;
+    width: 143px;
+    height: 39px;
+    font-size: 16px;
+}
+
+#reject:hover{
+    background-color: #9d5353;
+}
+
+#add, #rqphone, #accept, #reject{
+    cursor: pointer;
+}
+
+
 .book-info-form {
+    background-color: #f3f3f3;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 15px;
+    color: rgb(34, 34, 34);
+    padding: 30px;
+    padding-bottom: 0px;
+    box-sizing: border-box;
+    box-shadow: rgba(10, 10, 10, 0.2) 0px 2px 8px 0px;
+    margin-left: -20px;
+    margin-bottom: 50px;
     align-items: flex-start;
 }
 
 .book-image-reservation {
-    width: 30%;
+    width: 100%;
     box-sizing: border-box;
     border-radius: 15px;
 }
@@ -949,21 +1013,22 @@ input[type=number] {
 .book-image-container {
     box-sizing: border-box;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
     margin-bottom: 30px;
-    background-color: #ece4de;
 }
 
 .book-image {
     background-image: url("../CSS/images/bookimages/NOIMAGE.png");
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
 .reservation-button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #e36a00;
+    background-color: #1a98c0;
     color: white;
     border: none;
     border-radius: 4px;
@@ -972,19 +1037,19 @@ input[type=number] {
 }
 
 .reservation-button:hover {
-    background-color: #e35200;
+    background-color: #1a98c0;
 }
 
 .book-details {
-    width: 60%;
+    width: 100%;
     height: auto;
     padding: 15px;
-    margin-left: 50px;
+    margin-bottom: 50px;
     box-sizing: border-box;
     color: #1f1f1f;
     border-radius: 15px;
     background: rgb(240, 240, 240);
-    background: linear-gradient(140deg, rgba(240, 240, 240, 1) 66%, rgba(255, 232, 211, 1) 100%);
+    background: linear-gradient(140deg, rgb(240, 240, 240) 66%, rgb(229, 249, 255) 100%);
 }
 
 .book-details > div {
@@ -1009,8 +1074,10 @@ input[type=number] {
     font-size: 22px;
     letter-spacing: 3px;
     width: 100%;
-    text-decoration: underline #e1661f 3px;
+    text-decoration: underline #1a98c0 3px;
     text-underline-offset: 6px;
+    margin-bottom: 20px;
+    margin-left: 100px;
 
 }
 
@@ -1033,10 +1100,9 @@ input[type=number] {
     height: 25px;
     margin-top: -18px;
     border-width: 1px;
-    border-color: rgb(156, 156, 156);
-    background-color: #fff3ed;
+    border-color: rgb(198, 198, 198);
+    background-color: white;
     padding-left: 10px;
-    font-family: 'Poppins', sans-serif;
     position: inherit;
 }
 
@@ -1062,7 +1128,7 @@ input[type=number] {
 }
 
 #changepw {
-    color: #e35200;
+    color: #1a98c0;
     float: right;
     font-size: 16px;
 }
@@ -1072,9 +1138,9 @@ input[type=number] {
 }
 
 .displaytable {
-    width: 800px;
+    width: 1020px;
     justify-content: left;
-    margin-left: -145px;
+    /*margin-left: -145px;*/
 }
 
 table {
@@ -1083,26 +1149,27 @@ table {
     border: 0px solid;
     table-layout: fixed;
     overflow: scroll;
-    color: white;
+    color: rgb(34, 34, 34);
 
 
 }
 
 table tbody tr{
-    background-color: #5f5f5f;
+    background-color: #ffffff;
     border: 0px;
 }
 
 table thead tr th {
-    background-color: #e37100;
+    background-color: #1a98c0;
     box-sizing: content-box;
     padding: 5px;
     padding-left: 10px;
     border-radius: 5px 5px 0px 0px;
+    height: 30px;
 }
 
 table tbody tr:nth-child(even){
-    background-color: #4a4a4a;
+    background-color: #efefef;
 
 }
 
@@ -1133,7 +1200,6 @@ table tbody tr td {
 #containerl {
     display: flex;
     justify-content: right;
-    font-family: 'Poppins', sans-serif;
     margin-bottom: 100px;
     width: 80%;
 }
@@ -1142,7 +1208,6 @@ table tbody tr td {
     background-color: #191919;
     border-radius: 5px;
     color: #dfe0df;
-    font-family: 'Poppins', sans-serif;
     cursor: pointer;
     box-sizing: border-box;
     padding: 8px;
@@ -1159,7 +1224,7 @@ table tbody tr td {
 }
 
 .manage {
-    filter: invert(100%) sepia(99%) saturate(0%) hue-rotate(254deg) brightness(105%) contrast(100%);
+    filter: invert(35%) sepia(99%) saturate(0%) hue-rotate(254deg) brightness(105%) contrast(100%);
 }
 
 .manage:hover {
@@ -1199,15 +1264,15 @@ table tbody tr td {
 
 .pagination-number,
 .pagination-button{
-    font-size: 1.1rem;
+    font-size: 12px;
     background-color: transparent;
     border: none;
     margin: 0.25rem 0.25rem;
     cursor: pointer;
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 2rem;
+    width: 2rem;
     border-radius: .2rem;
-    color: #dfdfdf;
+    color: #424242;
 }
 
 .pagination-number:hover,
@@ -1217,15 +1282,13 @@ table tbody tr td {
 
 .pagination-number.active {
     color: #fff;
-    background: #e37100;
+    background: #1a98c0;
 }
 
 .infolink{
     color: white;
     text-decoration: none;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 @keyframes bounce {
     0% {
