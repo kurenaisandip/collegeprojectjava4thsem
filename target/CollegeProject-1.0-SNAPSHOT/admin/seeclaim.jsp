@@ -42,28 +42,20 @@
 </header>
 <div class="parent">
   <section class="admin-nav">
-    <span id="adminid">User Panel</span>
+    <span id="adminid">Admin Panel</span>
     <ul id="navlist">
       <li>
-        <div class="listitem collapsible">Policy Plan</div>
+        <div class="listitem collapsible">User</div>
         <ul class="collapseitem" style="width: 224px;">
-          <a href="User?page=policyplan">
-            <li class="listitem sublistitem">Add Policy</li>
-          </a>
-          <a href="User?page=viewpremium">
-            <li class="listitem sublistitem">Premium Policy</li>
-          </a>
-          <a href="User?page=listpolicies">
-            <li class="listitem sublistitem">Manage Policy</li>
+          <a href="admin?action=listUser">
+            <li class="listitem sublistitem">User List</li>
           </a>
         </ul>
       </li>
-      <a href="User?page=claiminsurance">
-        <li class="listitem">Claim</li>
+      <a href="admin?action=claimlist">
+        <li class="listitem">See Claim</li>
       </a>
-      <a href="User?page=viewResult">
-        <li class="listitem">View Result</li>
-      </a>
+
     </ul>
   </section>
 
@@ -81,13 +73,13 @@
                   <label>First Name:</label>
                 </div>
                 <div class="compactd">
-                  <label>Last Name:</label>
+                  <label></label>
                 </div>
                 <br>
               </div>
               <div class="displayfields inputsection inputsection-sub">
                 <div class="compactd">
-                  <span>a</span>
+                  <span>${details.name}</span>
                 </div>
                 <div class="compactd">
                   <span>a</span>
@@ -106,12 +98,11 @@
               </div>
               <div class="displayfields inputsection inputsection-sub">
                 <div class="compactd">
-                  <span>a</span>
+                  <span>${details.policy}</span>
                 </div>
                 <div class="compactd">
-                  <span>a</span>
-                  <%--        <p>${details.btitle}a</p>--%>
-                  <%--        <p>${details.bauthor}a</p>--%>
+                  <span>${details.address}</span>
+
                 </div>
               </div>
               <div class="label inputsection inputsection-sub">
@@ -125,12 +116,11 @@
               </div>
               <div class="displayfields inputsection inputsection-sub">
                 <div class="compactd">
-                  <span>a</span>
+                  <span>${details.email}</span>
                 </div>
                 <div class="compactd">
-                  <span>a</span>
-                  <%--        <p>${details.btitle}a</p>--%>
-                  <%--        <p>${details.bauthor}a</p>--%>
+                  <span>${details.phone_number}</span>
+
                 </div>
               </div>
 
@@ -141,9 +131,8 @@
               </div>
               <div class="displayfields inputsection inputsection-sub">
                 <div>
-                  <span>a</span>
-                  <%--        <p>${details.btitle}a</p>--%>
-                  <%--        <p>${details.bauthor}a</p>--%>
+                  <span>${details.info}</span>
+
                 </div>
               </div>
             </div>
@@ -155,14 +144,14 @@
           <div class="book-image-reservation">
             <div class="book-image-container">
               <img class="book-image"
-                   src="${pageContext.request.contextPath}src/main/webapp/files/horkita.jpg">
+                   src="data:image/png;base64,${details.image}">">
             </div>
           </div>
         </div>
 
         <div class="bottombutton" style="margin-bottom: 50px;">
-          <button type="submit" id="accept">Accept Claim</button>
-          <button type="submit" id="reject">Reject Claim</button>
+          <button type="submit" id="accept" value = "accepted">Accept Claim</button>
+          <button type="submit" id="reject" value="rejected">Reject Claim</button>
         </div>
       </div>
     </div>

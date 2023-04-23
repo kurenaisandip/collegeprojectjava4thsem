@@ -6,6 +6,7 @@
 <%@ page import="Model.Student" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
+<%@ page import="Service.AdminService" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,15 +65,9 @@
           <a href="admin?action=listUser">
             <li class="listitem sublistitem">User List</li>
           </a>
-          <a href="admin?action=sorting">
-            <li class="listitem sublistitem">Sort User</li>
-          </a>
-          <a href="User?page=listpolicies">
-            <li class="listitem sublistitem">View Policy</li>
-          </a>
         </ul>
       </li>
-      <a href="User?page=claiminsurance">
+      <a href="admin?action=claimlist">
         <li class="listitem">See Claim</li>
       </a>
       <%--            <a href="User?page=viewResult">--%>
@@ -90,29 +85,29 @@
           <div class="User-profile-display displaytable">
             <table>
               <colgroup>
-                <col span="1" style="width: 4%;">
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 20%;">
-                <col span="1" style="width: 15%;">
-                <col span="1" style="width: 8%;">
+                <col span="1" style="width: 6%;">
+                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 35%;">
                 <col span="1" style="width: 9%;">
-                <col span="1" style="width: 9%;">
+                <col span="1" style="width: 25%;">
+
               </colgroup>
               <thead>
               <tr class="listhead">
                 <th>id</th>
                 <th>Username</th>
                 <th>Email</th>
+                <th>Status</th>
                 <th>Action</th>
               </tr>
               </thead>
               <tbody id="paginated-list" data-current-page="1"
                      aria-live="polite">
               <% PrintWriter printt=response.getWriter();
-                List<Student> userList = new ArrayList<>();
+                List<Student> getUserList = new AdminService().getUserList();
 
                 int sn =1;
-                for (Student student : userList) {
+                for (Student student : getUserList) {
               %>
               <tr>
                 <td style="float:right; height: 24px;">
@@ -128,18 +123,29 @@
                     <%=student.getEmail()%>
                   </div>
                 </td>
+                <td>
+                  <div class="item">
+                    <%=student.getStatus()%>
+                  </div>
+                </td>
 
                 <%-- <!-- <td><a
                         href="User?page=showimage&id=${student.id}">Show
                         Image</a></td> -->--%>
                 <td style="text-align: center;">
-                  <div><a href="admin?action=userDetails&id=<%=student.getId()%>"><img
+<%--                  Enable Account--%>
+                  <div><a href="admin?action=enable&id=<%=student.getId()%>&status=active"><img
                           src="${pageContext.request.contextPath}/CSS/images/icons/edit.svg"
-                          class="manage edit" title="Edit Book"
+                          class="manage edit" title="Enable Account"
+                          style="float:left;"></a></div>
+<%--                  Disable account--%>
+                  <div><a href="admin?action=disable&id=<%=student.getId()%>&status=block"><img
+                          src="${pageContext.request.contextPath}/CSS/images/icons/disable.svg"
+                          class="manage edit" title="Disable Account"
                           style="float:left;"></a></div>
                   <div><a href="admin?action=deleteUser&id=<%=student.getId()%>"><img
                           src="${pageContext.request.contextPath}/CSS/images/icons/delet.svg"
-                          class="manage lock" title="Remove Book"
+                          class="manage lock" title="Remove Account"
                           style="float:right;"></a>
                   </div>
                 </td>

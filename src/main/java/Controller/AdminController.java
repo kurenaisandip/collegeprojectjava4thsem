@@ -3,6 +3,7 @@ package Controller;
 import Hashing.HashPassword;
 import Model.Student;
 import Service.AdminService;
+import Service.UserService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @WebServlet(name = "AdminController", value = "/admin")
@@ -168,6 +170,60 @@ public class AdminController extends HttpServlet {
 //            RequestDispatcher dispatcher = request.getRequestDispatcher("admin/view.jsp");
 //            dispatcher.forward(request, response);
 //        }
+
+//    TODO: make user enable
+        if (action.equalsIgnoreCase("enable")){
+        int id = Integer.parseInt(request.getParameter("id"));
+        String status = request.getParameter("status");
+
+           new AdminService().enableaccount(id, status);
+            RequestDispatcher rd = request.getRequestDispatcher("admin/listuser.jsp");
+            rd.forward(request, response);
+
+        }
+        //    TODO: make user disable
+        if (action.equalsIgnoreCase("disable")){
+        int id = Integer.parseInt(request.getParameter("id"));
+        String status = request.getParameter("status");
+
+           new AdminService().disableaccount(id, status);
+            RequestDispatcher rd = request.getRequestDispatcher("admin/listuser.jsp");
+            rd.forward(request, response);
+
+        }
+//        to see people who have filed for claim
+        if (action.equalsIgnoreCase("claimlist")) {
+
+            List<Student> list;
+            try {
+                list = new AdminService().claimlist();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            request.setAttribute("list", list);
+            RequestDispatcher rd = request.getRequestDispatcher("admin/claimlist.jsp");
+            rd.forward(request, response);
+
+        }
+
+        // to show the claim details
+        if (action.equalsIgnoreCase("ClaimDetail")) {
+
+            Student student = new Student();
+            student.setId(Integer.parseInt(request.getParameter("id")));
+            HashMap<String, Object> details = null;
+            try {
+                details = new AdminService().showclaim(student);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            request.setAttribute("details", details);
+
+            RequestDispatcher rd = request.getRequestDispatcher("admin/seeclaim.jsp");
+            rd.forward(request, response);
+
+        }
 
 
 

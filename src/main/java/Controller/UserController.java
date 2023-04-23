@@ -88,6 +88,7 @@ public class UserController extends HttpServlet {
 
             student.setUserName(request.getParameter("username"));
             student.setEmail(request.getParameter("email"));
+            student.setStatus(request.getParameter("status"));
             student.setPassword(HashPassword.hashPassword(request.getParameter("password")));
 
             new UserService().insertUser(student);

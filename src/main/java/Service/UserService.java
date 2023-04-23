@@ -15,7 +15,7 @@ import java.util.*;
 public class UserService {
 
     public void insertUser(Student student) {
-        String query = "insert into login_users(username, email, password)" + "values(?,?,?)"; // same as database
+        String query = "insert into login_users(username, email, password, status)" + "values(?,?,?,?)"; // same as database
 
         PreparedStatement preparedStatements = new DBConnection().getStatement(query);  // execute parametrized query
 
@@ -23,6 +23,7 @@ public class UserService {
             preparedStatements.setString(1, student.getUserName());
             preparedStatements.setString(2, student.getEmail());
             preparedStatements.setString(3, student.getPassword());
+            preparedStatements.setString(3, student.getStatus());
 
             preparedStatements.execute();
 
@@ -35,7 +36,7 @@ public class UserService {
     public Student getUser(String email, String password) {
         Student student = null;
 
-        String query = "select * from login_users where email=? and password=?";
+        String query = "select * from login_users where email=? and password=? AND status='active'";
         PreparedStatement ps = new DBConnection().getStatement(query);
 
         try {
@@ -52,6 +53,7 @@ public class UserService {
                 student.setUserName(rs.getString("username"));
                 student.setEmail(rs.getString("email"));
                 student.setPassword(rs.getString("password"));
+                student.setStatus(rs.getString("status"));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

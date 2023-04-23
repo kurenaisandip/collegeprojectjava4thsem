@@ -215,6 +215,7 @@
                 <span class="title">Login</span>
 
                 <form action="User?page=login" method="post">
+                    <input type="hidden" name="status" value="active">
                     <div class="input-field">
                         <input type="text" name="email" placeholder="Enter your email" required>
                         <i class="uil uil-envelope icon"></i>
