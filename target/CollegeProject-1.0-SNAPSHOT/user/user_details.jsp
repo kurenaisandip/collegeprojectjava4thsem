@@ -29,7 +29,7 @@
     <label>E-Value: ${student.evalue}</label>
     <br>
 
-    <img src="data:image/png;base64,${base64Image}">
+<%--    <img src="data:image/png;base64,${base64Image}">--%>
     <tr>
         <td><a href="User?page=userEdit&id=${student.id}">Edit</a></td>
 <%--        <td><a href="User?page=deleteUser&id=${student.id}">Delete</a></td>--%>

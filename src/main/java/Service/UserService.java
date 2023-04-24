@@ -23,7 +23,7 @@ public class UserService {
             preparedStatements.setString(1, student.getUserName());
             preparedStatements.setString(2, student.getEmail());
             preparedStatements.setString(3, student.getPassword());
-            preparedStatements.setString(3, student.getStatus());
+            preparedStatements.setString(4, student.getStatus());
 
             preparedStatements.execute();
 
@@ -221,12 +221,14 @@ public class UserService {
 
 // This code is related to delete User
 
-    public void deleteUser(int id) {
-        String query = "delete from details where id = ?";
+    public void deleteUser(int id, int userID) {
+        String query = "DELETE FROM details WHERE uid = ? AND id = ?";
         PreparedStatement ps = new DBConnection().getStatement(query);
+        System.out.println(ps);
 
         try {
-            ps.setInt(1, id);
+            ps.setInt(2, id);
+            ps.setInt(1, userID);
             ps.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -274,7 +276,7 @@ public class UserService {
 
     //    For registering the claim of their insurance
     public void Claim(int userID, Student student) {
-        String query = "insert into claim (name, policy, address, email, number, info, file, buydate,  uid ) values (?,?,?,?,?,?,?,?,?)";
+        String query = "insert into claim (name, policy, address, email, number, info, file, buydate,  uid, status, lastdate ) values (?,?,?,?,?,?,?,?,?, ?, ?)";
         PreparedStatement ps = new DBConnection().getStatement(query);
         try {
             ps.setString(1, student.getUserName());
@@ -286,6 +288,8 @@ public class UserService {
             ps.setString(7, student.getImages());
             ps.setString(8, student.getBuydate());
             ps.setString(9, String.valueOf(userID));
+            ps.setString(10, student.getStatus());
+            ps.setString(11, student.getLastdate());
 
             ps.executeUpdate();
             System.out.println(ps);
@@ -477,7 +481,7 @@ public class UserService {
 
     public static List<Student> getclaimlist(int userID) {
         List<Student> claimlist = new ArrayList<>();
-        String query = "SELECT  id,name, number, policy, email, info, buydate, status " + "FROM claim " + "WHERE uid = ?";
+        String query = "SELECT  id,name, number, policy, email, info, buydate, status, lastdate " + "FROM claim " + "WHERE uid = ?";
 
 
         PreparedStatement pstm = new DBConnection().getStatement(query);
@@ -494,6 +498,7 @@ public class UserService {
                 student.setInformation(rs.getString("info"));
                 student.setBuydate(rs.getString("buydate"));
                 student.setStatus(rs.getString("status"));
+                student.setLastdate(rs.getString("lastdate"));
 
                 claimlist.add(student);
 

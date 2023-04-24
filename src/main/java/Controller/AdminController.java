@@ -148,6 +148,10 @@ public class AdminController extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(request, response);
         }
+if(action.equalsIgnoreCase("home")){
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("admin/adDashboard.jsp");
+            requestDispatcher.forward(request, response);
+        }
 
 
 //        For Sorting Part 2
@@ -221,6 +225,33 @@ public class AdminController extends HttpServlet {
             request.setAttribute("details", details);
 
             RequestDispatcher rd = request.getRequestDispatcher("admin/seeclaim.jsp");
+            rd.forward(request, response);
+
+        }
+//        for accepting the request
+        if (action.equalsIgnoreCase("accept")){
+
+            Student student = new Student();
+
+            student.setStatus(request.getParameter("accept"));
+            student.setId(Integer.parseInt(request.getParameter("id")));
+            new AdminService().accept(student);
+
+            RequestDispatcher rd = request.getRequestDispatcher("admin/claimlist.jsp");
+            rd.forward(request, response);
+
+        }
+//        for rejecting the claim
+        if (action.equalsIgnoreCase("reject")){
+
+            Student student = new Student();
+
+            student.setStatus(request.getParameter("reject"));
+            student.setId(Integer.parseInt(request.getParameter("id")));
+
+            new AdminService().reject(student);
+
+            RequestDispatcher rd = request.getRequestDispatcher("admin/claimlist.jsp");
             rd.forward(request, response);
 
         }

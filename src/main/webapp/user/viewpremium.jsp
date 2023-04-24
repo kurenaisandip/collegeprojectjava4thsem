@@ -30,10 +30,11 @@
         <div class="headtitles" id="headtitlesfix">
             <div class="one">
                 <ul>
-                    <li><a href="homepage.html"><img src="CSS/images/LMB.png" id="logo"></a></li>
+                    <li><a href="User?page=home"><img src="CSS/images/LMB.png" id="logo"></a></li>
                 </ul>
             </div>
             <div class="two">
+
                 <ul>
                     <li>
                         <form action="User?page=search" method="post">
@@ -43,7 +44,7 @@
                     </li>
 
 
-                    <li><a href="" id="profileprofile" class="headlink">My Profile</a></li>
+                    <li><a href="User?page=logout" id="profileprofile" class="headlink">Logout</a></li>
 
 
                 </ul>

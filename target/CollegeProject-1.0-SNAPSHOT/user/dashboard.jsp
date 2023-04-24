@@ -18,7 +18,7 @@
         <div class="headtitles" id="headtitlesfix">
             <div class="one">
                 <ul>
-                    <li><a href="homepage.html"><img src="CSS/images/LMB.png" id="logo"></a></li>
+                    <li><a href="User?page=home"><img src="CSS/images/LMB.png" id="logo"></a></li>
                 </ul>
             </div>
             <div class="two">
@@ -41,7 +41,7 @@
                     <a href="User?page=policyplan">
                         <li class="listitem sublistitem">Add Policy</li>
                     </a>
-                    <a href="User?page=viewpremium"> // from here sorting will be done
+                    <a href="User?page=viewpremium">
                         <li class="listitem sublistitem">View Premium</li>
                     </a>
                     <a href="User?page=listpolicies">

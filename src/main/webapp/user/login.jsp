@@ -254,6 +254,7 @@
                 <span class="title">Registration</span>
 
                 <form action="User?page=register" method="post">
+                    <input type="hidden" name="status" value="active">
                     <div class="input-field">
                         <input type="text" name="username" placeholder="Enter your name" required>
                         <i class="uil uil-user"></i>

@@ -33,7 +33,7 @@
         <div class="headtitles" id="headtitlesfix">
             <div class="one">
                 <ul>
-                    <li><a href="User?page=return"><img src="CSS/images/LMB.png" id="logo"></a></li>
+                    <li><a href="User?page=home"><img src="CSS/images/LMB.png" id="logo"></a></li>
                 </ul>
             </div>
             <div class="two">
@@ -46,7 +46,8 @@
                     </li>
 
 
-                    <li><a href="" id="profileprofile" class="headlink">My Profile</a></li>
+
+                    <li><a href=" User?page=logout" id="profileprofile" class="headlink">logout</a></li>
 
 
                 </ul>
@@ -94,7 +95,6 @@
                                 <col span="1" style="width: 4%;">
                                 <col span="1" style="width: 20%;">
                                 <col span="1" style="width: 20%;">
-                                <col span="1" style="width: 15%;">
                                 <col span="1" style="width: 8%;">
                                 <col span="1" style="width: 9%;">
                                 <col span="1" style="width: 9%;">
@@ -103,11 +103,10 @@
                             <tr class="listhead">
                                 <th>id</th>
                                 <th>Username</th>
-                                <th>Phone Number</th>
-                                <th>Evalue</th>
-                                <th>Premium</th>
-                                <th> Date</th>
-                                <th>Next Premium Date</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Applied Date</th>
+                                <th>Expected Date</th>
                             </tr>
                             </thead>
                             <c:forEach var="viewresult" items="${viewresult}" varStatus="status" >
@@ -123,23 +122,19 @@
                                         ${viewresult.userName}
                                 </td>
                                 <td>
-                                    <div class="item" >${viewresult.mobile_Number}</div>
+                                    <div class="item" > ${viewresult.email}</div>
                                 </td>
                                 <td>
-                                    ${viewresult.email}
+                                        ${viewresult.status}
                                 </td>
                                 <td>
-                                    ${viewresult.information}
-                                </td>
-                                <td>
-                                    ${viewresult.planType}
-
+                                        ${viewresult.buydate}
                                 </td>
 
                                 <%--                                <!-- <td><a href="User?page=showimage&id=${student.id}">Show Image</a></td> -->--%>
 
                                 <td style="text-align: center;">
-                                    ${viewresult.buydate}
+                                    ${viewresult.lastdate}
                                 </td>
 
                             </tr>

@@ -12,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Premium</title>
-    <link rel="shortcut icon" type="image/jpg" href="CSS/images/LM.ico" />
+    <link rel="shortcut icon" type="image/jpg" href="CSS/images/LM.ico"/>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'
           type='text/css'>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/CSS/styles.css">
@@ -27,8 +27,8 @@
         <div class="headtitles" id="headtitlesfix">
             <div class="one">
                 <ul>
-                    <li><a href="homepage.html"><img src="CSS/images/LMB.png"
-                                                     id="logo"></a></li>
+                    <li><a href="admin?action=home"><img src="CSS/images/LMB.png"
+                                                         id="logo"></a></li>
                 </ul>
             </div>
             <div class="two">
@@ -43,7 +43,7 @@
                     </li>
 
 
-                    <li><a href="" id="profileprofile" class="headlink">My Profile</a>
+                    <li><a href="admin?action=logout" id="profileprofile" class="headlink">Logout</a>
                     </li>
 
 
@@ -63,21 +63,22 @@
                     <a href="admin?action=listUser">
                         <li class="listitem sublistitem">User List</li>
                     </a>
-                    <a href="admin?action=sorting">
-                        <li class="listitem sublistitem">Sort User</li>
-                    </a>
-                    <a href="User?page=listpolicies">
-                        <li class="listitem sublistitem">View Policy</li>
-                    </a>
                 </ul>
             </li>
-            <a href="User?page=claiminsurance">
+            <a href="admin?action=claimlist">
                 <li class="listitem">See Claim</li>
             </a>
-<%--            <a href="User?page=viewResult">--%>
-<%--                <li class="listitem">View Result</li>--%>
-<%--            </a>--%>
+
         </ul>
+    </section>
+    <section class="page">
+        <div class="container">
+            <div class="user-info-container landpgc">
+                <span>
+                    a
+                </span>
+            </div>
+        </div>
     </section>
 
 

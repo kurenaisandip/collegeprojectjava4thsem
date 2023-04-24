@@ -81,6 +81,11 @@ public class UserController extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("user/policyplan.jsp"); // this code is not working
             rd.forward(request, response);
         }
+//        ToDo: to return to home page
+        if (action.equalsIgnoreCase("home")) {
+            RequestDispatcher rd = request.getRequestDispatcher("user/dashboard.jsp"); // this code is not working
+            rd.forward(request, response);
+        }
 
         //        To register a new account
         if (action.equalsIgnoreCase("register")) {
@@ -177,6 +182,8 @@ public class UserController extends HttpServlet {
 
             // Set the student object as an attribute to be displayed in the JSP page
             request.setAttribute("student", student);
+            RequestDispatcher rd = request.getRequestDispatcher("user/showpremiumandpolicysucesspage.jsp");
+                rd.forward(request, response);
 
 
         }
@@ -200,12 +207,14 @@ public class UserController extends HttpServlet {
             try {
                 System.out.println("inside the try ");
                 student.setUserName(request.getParameter("name"));
-                student.setPlan(request.getParameter("Insurance_policy"));
+                student.setPlan(request.getParameter("policy"));
                 student.setAddress(request.getParameter("address"));
                 student.setEmail(request.getParameter("email"));
                 student.setMobile_Number((request.getParameter("phone_number")));
                 student.setInformation(request.getParameter("info"));
                 student.setBuydate(request.getParameter("buydate"));
+                student.setStatus(request.getParameter("status"));
+                student.setLastdate(request.getParameter("lastdate"));
 
                 student.setImages(filePathName);
                 System.out.println(student.getUserName());
@@ -214,6 +223,7 @@ public class UserController extends HttpServlet {
                 System.out.print(student.getAddress());
                 System.out.print(student.getInformation());
                 System.out.print(student.getEmail());
+                System.out.print(student.getStatus());
                 new UserService().Claim(userID, student);
 
             }
@@ -364,15 +374,13 @@ public class UserController extends HttpServlet {
 
 
 //            For user to delete the policy
-        if (action.equalsIgnoreCase("deleteUser")) {
-            String userID = (String) request.getSession().getAttribute("uid");
-//            int id = Integer.parseInt(request.getParameter("policyId"));
-            int id = Integer.parseInt(request.getParameter("id"));
+        if (action.equalsIgnoreCase("delete")) {
+            int userID = Integer.parseInt((String) request.getSession().getAttribute("uid"));
 
-            UserService userService = new UserService();
-            userService.deleteUser(id);
-            List<Student> userList = new UserService().getPolicyList(Integer.parseInt(userID));
-            request.setAttribute("userList", userList);
+            int id = Integer.parseInt(request.getParameter("id"));
+            System.out.println("am i in deleteuser");
+
+            new UserService().deleteUser(id , userID);
             RequestDispatcher rd = request.getRequestDispatcher("user/managepolicy.jsp");
             rd.forward(request, response);
         }
@@ -423,11 +431,6 @@ public class UserController extends HttpServlet {
             dispatcher.forward(request, response);
         }
 
- // To return to homepage
-        if (action.equalsIgnoreCase("return")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("user/dashboard.jsp");
-            dispatcher.forward(request, response);
-        }
 
 
 //to show the result

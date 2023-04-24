@@ -179,6 +179,8 @@ public class AdminService {
     }
 
     // to dislay image and deatils of claim in seecliam page
+//    for rejecting and accepting the claim by admin
+
     public HashMap<String, Object> showclaim(Student student) throws SQLException {
         HashMap<String, Object> details = new HashMap<>();
         String base64Image = "";
@@ -231,7 +233,29 @@ public class AdminService {
 
         return details;
     }
+    public void reject(Student student) {
+    String query = "UPDATE claim SET status = ? WHERE id = ?";
+    PreparedStatement ps = new DBConnection().getStatement(query);
 
+    try {
+        ps.setString(1, student.getStatus());
+        ps.setInt(2, student.getId());
+        ps.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}public void accept(Student student) {
+    String query = "UPDATE claim SET status = ? WHERE id = ?";
+    PreparedStatement ps = new DBConnection().getStatement(query);
+
+    try {
+        ps.setString(1, student.getStatus());
+        ps.setInt(2, student.getId());
+        ps.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 
 } // admin service
 

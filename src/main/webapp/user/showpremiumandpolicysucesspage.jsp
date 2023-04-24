@@ -130,17 +130,18 @@
                 <h1>Payments</h1>
             </div>
             <div class="content">
-                <h3> Total premium = Nrs 80000 </h3>
+                <h3> Total premium = ${student.premium} </h3>
                 <h3>Risk Coverage = Nrs 5000000 </h3>
 
                 <div class="button">
-                    <a href="User?page=return">Return</a>
+                    <a href="User?page=home">Return</a>
                 </div>
             </div>
 
+
         </div>
         <div class="image-section">
-            <img src="images/img one.png">
+            <img src="\CSS\images">
         </div>
     </div>
 </div>

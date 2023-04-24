@@ -23,7 +23,9 @@
         <div class="headtitles" id="headtitlesfix">
             <div class="one">
                 <ul>
-                    <li><a href="User?page=return"><img src="CSS/images/LMB.png" id="logo"></a></li>
+                    <li><a href=" User?page=home"><img src="CSS/images/LMB.png" id="logo"></a></li>
+                    User?page=search
+
                 </ul>
             </div>
             <div class="two">
@@ -36,7 +38,7 @@
                     </li>
 
 
-                    <li><a href="" id="profileprofile" class="headlink">My Profile</a></li>
+                    <li><a href="User?page=logout" id="profileprofile" class="headlink">Logout</a></li>
 
 
                 </ul>
@@ -137,7 +139,7 @@
                                             src="${pageContext.request.contextPath}/CSS/images/icons/edit.svg"
                                             class="manage edit" title="Edit Book"
                                             style="float:left;"></a></div>
-                                    <div><a href="User?page=deleteUser&id=<%=student.getId()%>"><img
+                                    <div><a href="User?page=delete&id=<%=student.getId()%>"><img
                                             src="${pageContext.request.contextPath}/CSS/images/icons/delet.svg"
                                             class="manage lock" title="Remove Book"
                                             style="float:right;"></a>
