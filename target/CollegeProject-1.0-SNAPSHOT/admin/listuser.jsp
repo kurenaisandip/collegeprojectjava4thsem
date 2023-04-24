@@ -29,7 +29,7 @@
     <div class="headtitles" id="headtitlesfix">
       <div class="one">
         <ul>
-          <li><a href="homepage.html"><img src="CSS/images/LMB.png"
+          <li><a href="admin?action=home"><img src="CSS/images/LMB.png"
                                            id="logo"></a></li>
         </ul>
       </div>
@@ -45,7 +45,7 @@
           </li>
 
 
-          <li><a href="" id="profileprofile" class="headlink">My Profile</a>
+          <li><a href="admin?action=logout" id="profileprofile" class="headlink">Logout</a>
           </li>
 
 
@@ -85,11 +85,11 @@
           <div class="User-profile-display displaytable">
             <table>
               <colgroup>
-                <col span="1" style="width: 6%;">
-                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 5%;">
+                <col span="1" style="width: 30%;">
                 <col span="1" style="width: 35%;">
-                <col span="1" style="width: 9%;">
-                <col span="1" style="width: 25%;">
+                <col span="1" style="width: 10%;">
+                <col span="1" style="width: 8%;">
 
               </colgroup>
               <thead>
@@ -141,7 +141,7 @@
 <%--                  Disable account--%>
                   <div><a href="admin?action=disable&id=<%=student.getId()%>&status=block"><img
                           src="${pageContext.request.contextPath}/CSS/images/icons/disable.svg"
-                          class="manage edit" title="Disable Account"
+                          class="manage edit disable" title="Disable Account"
                           style="float:left;"></a></div>
                   <div><a href="admin?action=deleteUser&id=<%=student.getId()%>"><img
                           src="${pageContext.request.contextPath}/CSS/images/icons/delet.svg"
